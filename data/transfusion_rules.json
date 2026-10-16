@@ -1,0 +1,638 @@
+{
+  "metadata": {
+    "module_id": "transfusion",
+    "title": "การทบทวนความเข้ากันได้ของส่วนประกอบเลือดและปฏิกิริยา",
+    "version": "2026.10.08-draft.1",
+    "status": "draft_requires_local_validation",
+    "scope": "ทบทวนข้อมูล RBC หรือพลาสมาและสัญญาณสงสัยปฏิกิริยาตามข้อมูลที่รายงาน ไม่รองรับการปล่อยเลือดฉุกเฉิน ข้อยกเว้น low-titre plasma เกล็ดเลือด เลือดครบส่วน หรือการตัดสินใจเลือกหน่วยเลือดแทนธนาคารเลือด",
+    "disclaimer": "ผลนี้เป็นรายการช่วยทบทวน ไม่ใช่ผล crossmatch ไม่ใช่ใบอนุมัติปล่อยหรือให้เลือด ต้องให้ผู้รับผิดชอบธนาคารเลือดตรวจสอบตาม SOP และสถานการณ์ผู้ป่วย",
+    "sources": [
+      {
+        "title": "Lifeblood — Component compatibility (April 2026)",
+        "url": "https://www.lifeblood.com.au/health-professionals/products/component-compatibility",
+        "use": "ตาราง ABO ของ RBC/พลาสมา และขอบเขต RhD; ไม่รวมข้อยกเว้นฉุกเฉิน"
+      },
+      {
+        "title": "Lifeblood — Pretransfusion specimen collection and compatibility testing (January 2026)",
+        "url": "https://www.lifeblood.com.au/health-professionals/clinical-practice/transfusion-process/pretransfusion-specimen-collection-compatibility-testing",
+        "use": "การยืนยันตัวอย่าง ประวัติแอนติบอดี และข้อจำกัดของวิธี crossmatch"
+      },
+      {
+        "title": "Lifeblood — Management of suspected reactions",
+        "url": "https://www.lifeblood.com.au/health-professionals/clinical-practice/adverse-events/management-of-suspected-reactions",
+        "use": "การหยุดให้เลือด ประเมิน ABC คงเส้น IV ตรวจเอกสาร และแจ้งทีมเมื่อสงสัยปฏิกิริยา"
+      },
+      {
+        "title": "ANZSBT — Guidelines for transfusion and immunohaematology laboratory practice (June 2025)",
+        "url": "https://anzsbt.org.au/wp-content/uploads/2025/06/Guidelines-for-transfusion-and-immunohaematology-laboratory-practice_June-2025-PUBLISHED-1.pdf",
+        "use": "การทบทวนก่อนให้เลือดและการตรวจสอบ ABO ตามระบบที่ผ่านการยืนยันของหน่วยงาน"
+      }
+    ]
+  },
+  "fields": [
+    {
+      "key": "component",
+      "label": "ส่วนประกอบเลือด",
+      "type": "select",
+      "section": "ส่วนประกอบและการยืนยัน",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "rbc",
+          "label": "เม็ดเลือดแดง (RBC)"
+        },
+        {
+          "value": "plasma",
+          "label": "พลาสมา"
+        }
+      ]
+    },
+    {
+      "key": "identity_verified",
+      "label": "ตรวจสอบความตรงกันของผู้รับ ตัวอย่าง และเอกสารแล้ว",
+      "type": "select",
+      "section": "ส่วนประกอบและการยืนยัน",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / ยืนยันแล้ว"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ยังไม่ยืนยัน"
+        }
+      ]
+    },
+    {
+      "key": "specimen_valid",
+      "label": "ตัวอย่างยังใช้ได้ตาม SOP และประวัติรับเลือด/ตั้งครรภ์",
+      "type": "select",
+      "section": "ส่วนประกอบและการยืนยัน",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / ยืนยันแล้ว"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ยังไม่ยืนยัน"
+        }
+      ]
+    },
+    {
+      "key": "independent_type_verified",
+      "label": "ยืนยันหมู่เลือดอย่างอิสระตามข้อกำหนด SOP แล้ว",
+      "type": "select",
+      "section": "ส่วนประกอบและการยืนยัน",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / ยืนยันแล้ว"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ยังไม่ยืนยัน"
+        }
+      ]
+    },
+    {
+      "key": "abo_basis",
+      "label": "แหล่งข้อมูล ABO ที่ใช้ทบทวน",
+      "type": "select",
+      "section": "ABO",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "forward_reverse",
+          "label": "ผล forward และ reverse ของการตรวจที่ใช้ได้"
+        },
+        {
+          "value": "verified_record",
+          "label": "หมู่เลือดผู้รับจากประวัติที่ยืนยันแล้ว"
+        }
+      ]
+    },
+    {
+      "key": "forward_abo",
+      "label": "ABO จาก forward grouping",
+      "type": "select",
+      "section": "ABO",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "O",
+          "label": "O"
+        },
+        {
+          "value": "A",
+          "label": "A"
+        },
+        {
+          "value": "B",
+          "label": "B"
+        },
+        {
+          "value": "AB",
+          "label": "AB"
+        }
+      ]
+    },
+    {
+      "key": "reverse_abo",
+      "label": "ABO จาก reverse grouping",
+      "type": "select",
+      "section": "ABO",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "O",
+          "label": "O"
+        },
+        {
+          "value": "A",
+          "label": "A"
+        },
+        {
+          "value": "B",
+          "label": "B"
+        },
+        {
+          "value": "AB",
+          "label": "AB"
+        }
+      ]
+    },
+    {
+      "key": "verified_patient_abo",
+      "label": "ABO ผู้รับจากประวัติ",
+      "type": "select",
+      "section": "ABO",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "O",
+          "label": "O"
+        },
+        {
+          "value": "A",
+          "label": "A"
+        },
+        {
+          "value": "B",
+          "label": "B"
+        },
+        {
+          "value": "AB",
+          "label": "AB"
+        }
+      ]
+    },
+    {
+      "key": "record_verified",
+      "label": "ยืนยันความถูกต้องของประวัติ ABO แล้ว",
+      "type": "select",
+      "section": "ABO",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / ยืนยันแล้ว"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ยังไม่ยืนยัน"
+        }
+      ]
+    },
+    {
+      "key": "donor_abo",
+      "label": "ABO บนส่วนประกอบเลือดผู้ให้",
+      "type": "select",
+      "section": "ABO",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "O",
+          "label": "O"
+        },
+        {
+          "value": "A",
+          "label": "A"
+        },
+        {
+          "value": "B",
+          "label": "B"
+        },
+        {
+          "value": "AB",
+          "label": "AB"
+        }
+      ]
+    },
+    {
+      "key": "patient_rhd",
+      "label": "RhD ผู้รับ (สำหรับ RBC)",
+      "type": "select",
+      "section": "การตรวจประกอบ RBC",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "positive",
+          "label": "RhD positive"
+        },
+        {
+          "value": "negative",
+          "label": "RhD negative"
+        }
+      ]
+    },
+    {
+      "key": "donor_rhd",
+      "label": "RhD หน่วยเลือด (สำหรับ RBC)",
+      "type": "select",
+      "section": "การตรวจประกอบ RBC",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "positive",
+          "label": "RhD positive"
+        },
+        {
+          "value": "negative",
+          "label": "RhD negative"
+        }
+      ]
+    },
+    {
+      "key": "antibody_screen",
+      "label": "ผลคัดกรองแอนติบอดีปัจจุบัน",
+      "type": "select",
+      "section": "การตรวจประกอบ RBC",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "negative",
+          "label": "ลบ"
+        },
+        {
+          "value": "positive",
+          "label": "บวก"
+        },
+        {
+          "value": "not_done",
+          "label": "ยังไม่ได้ตรวจ"
+        }
+      ]
+    },
+    {
+      "key": "antibody_history",
+      "label": "มีประวัติแอนติบอดีที่มีความสำคัญทางคลินิก",
+      "type": "select",
+      "section": "การตรวจประกอบ RBC",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / ยืนยันแล้ว"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ยังไม่ยืนยัน"
+        }
+      ]
+    },
+    {
+      "key": "crossmatch_result",
+      "label": "ผล crossmatch ที่ห้องปฏิบัติการรายงาน",
+      "type": "select",
+      "section": "การตรวจประกอบ RBC",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "compatible",
+          "label": "รายงานว่าเข้ากันได้"
+        },
+        {
+          "value": "incompatible",
+          "label": "รายงานว่าไม่เข้ากัน"
+        },
+        {
+          "value": "not_done",
+          "label": "ยังไม่ได้ตรวจ"
+        }
+      ]
+    },
+    {
+      "key": "crossmatch_method",
+      "label": "วิธี crossmatch",
+      "type": "select",
+      "section": "การตรวจประกอบ RBC",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "iat",
+          "label": "Indirect antiglobulin (IAT)"
+        },
+        {
+          "value": "electronic",
+          "label": "Electronic crossmatch"
+        },
+        {
+          "value": "immediate_spin",
+          "label": "Immediate-spin"
+        }
+      ]
+    },
+    {
+      "key": "crossmatch_process_validated",
+      "label": "วิธีและเงื่อนไข crossmatch ผ่านการยืนยันตาม SOP",
+      "type": "select",
+      "section": "การตรวจประกอบ RBC",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / ยืนยันแล้ว"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ยังไม่ยืนยัน"
+        }
+      ]
+    },
+    {
+      "key": "antibody_workup_reviewed",
+      "label": "ผู้รับผิดชอบทบทวนการระบุแอนติบอดีปัจจุบัน/ประวัติแล้ว",
+      "type": "select",
+      "section": "กรณีแอนติบอดีบวกหรือมีประวัติ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / ยืนยันแล้ว"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ยังไม่ยืนยัน"
+        }
+      ]
+    },
+    {
+      "key": "antigen_negative_verified",
+      "label": "ยืนยันการเลือกหน่วยที่ไม่มีแอนติเจนเป้าหมายแล้ว",
+      "type": "select",
+      "section": "กรณีแอนติบอดีบวกหรือมีประวัติ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / ยืนยันแล้ว"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ยังไม่ยืนยัน"
+        }
+      ]
+    },
+    {
+      "key": "reaction_suspected",
+      "label": "ทีมสงสัยปฏิกิริยาจากการให้เลือด",
+      "type": "select",
+      "section": "อาการใหม่ระหว่างหรือหลังให้เลือด",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / ยืนยันแล้ว"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ยังไม่ยืนยัน"
+        }
+      ]
+    },
+    {
+      "key": "reaction_symptoms",
+      "label": "อาการใหม่ที่รายงานระหว่าง/หลังให้เลือด",
+      "type": "multiselect",
+      "section": "อาการใหม่ระหว่างหรือหลังให้เลือด",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "none",
+          "label": "ไม่มีอาการใหม่ที่รายงาน"
+        },
+        {
+          "value": "fever",
+          "label": "ไข้หรือหนาวสั่น"
+        },
+        {
+          "value": "dyspnea",
+          "label": "หายใจลำบาก/ออกซิเจนลด"
+        },
+        {
+          "value": "hypotension",
+          "label": "ความดันต่ำ/เป็นลม"
+        },
+        {
+          "value": "rash",
+          "label": "ผื่นหรือบวม"
+        },
+        {
+          "value": "pain",
+          "label": "ปวดผิดปกติ"
+        },
+        {
+          "value": "dark_urine",
+          "label": "ปัสสาวะสีเข้มผิดปกติ"
+        }
+      ]
+    }
+  ],
+  "thresholds": {
+    "abo_compatibility": {
+      "rbc": {
+        "O": [
+          "O"
+        ],
+        "A": [
+          "A",
+          "O"
+        ],
+        "B": [
+          "B",
+          "O"
+        ],
+        "AB": [
+          "AB",
+          "A",
+          "B",
+          "O"
+        ]
+      },
+      "plasma": {
+        "O": [
+          "O",
+          "A",
+          "B",
+          "AB"
+        ],
+        "A": [
+          "A",
+          "AB"
+        ],
+        "B": [
+          "B",
+          "AB"
+        ],
+        "AB": [
+          "AB"
+        ]
+      }
+    }
+  },
+  "messages": {
+    "component_missing": "ยังไม่ระบุส่วนประกอบเลือด จึงเลือกตารางทบทวน ABO ไม่ได้",
+    "control_missing": "ยังไม่ยืนยัน {label} จึงไม่สรุปว่าข้อมูลพร้อมสำหรับทบทวนความเข้ากันได้",
+    "abo_missing": "ข้อมูลแหล่งยืนยัน ABO ยังไม่ครบ ต้องยืนยันก่อนใช้ตารางส่วนประกอบเลือด",
+    "abo_discrepancy": "ABO ที่กรอกไม่สอดคล้องกัน ต้องให้ธนาคารเลือดสอบสวนความคลาดเคลื่อนก่อนเลือกส่วนประกอบ",
+    "abo_discrepancy_action": "ทบทวนตัวตน ตัวอย่าง ผล forward/reverse และประวัติ แล้วดำเนินการตาม SOP สำหรับ ABO discrepancy",
+    "abo_review": "ใช้ ABO ผู้รับ {patient} และ ABO ส่วนประกอบ {donor} ทบทวนตามตาราง {component}",
+    "abo_mismatch": "ABO ที่กรอกอยู่นอกคู่ที่รองรับสำหรับส่วนประกอบนี้ ต้องให้ธนาคารเลือดทบทวนก่อนดำเนินการ",
+    "abo_mismatch_action": "ยังไม่ใช้ผลนี้ประกอบการอนุมัติหน่วยเลือด ติดต่อผู้รับผิดชอบธนาคารเลือดเพื่อเลือกส่วนประกอบตาม SOP",
+    "abo_pattern_only": "คู่ ABO ที่กรอกอยู่ในตารางของส่วนประกอบนี้ แต่ยังไม่ใช่การรับรองความเข้ากันได้หรืออนุมัติให้เลือด",
+    "rhd_missing": "RhD ผู้รับหรือหน่วย RBC ยังไม่ทราบ ต้องทบทวนก่อนพิจารณาความเข้ากันได้",
+    "rhd_exception": "ผู้รับ RhD negative กับ RBC RhD positive ต้องให้แพทย์ธนาคารเลือดพิจารณาความเสี่ยงและข้อยกเว้นตามสถานการณ์ แอปนี้ไม่อนุมัติข้อยกเว้น",
+    "plasma_scope": "การทบทวนพลาสมาใช้ทิศทาง ABO ตามแอนติบอดีในพลาสมาผู้ให้ ไม่ใช้ RhD หรือ RBC crossmatch เป็นเงื่อนไขของตารางนี้",
+    "screen_missing": "ผลคัดกรองแอนติบอดีปัจจุบันหรือประวัติยังไม่ครบ จึงไม่สรุปข้อมูล RBC ว่าพร้อมทบทวนขั้นสุดท้าย",
+    "antibody_special": "มีผลคัดกรองบวกหรือประวัติแอนติบอดี ต้องทบทวนการระบุแอนติบอดี หน่วย antigen-negative และ IAT crossmatch",
+    "antibody_gate": "ข้อมูลการจัดการแอนติบอดียังไม่ครบ หรือวิธี crossmatch ไม่ใช่ IAT จึงระงับข้อสรุปเชิงบวกของการทบทวน RBC",
+    "crossmatch_missing": "ยังไม่มีผล crossmatch ที่รายงานว่าเข้ากันได้ด้วยกระบวนการที่ยืนยันตาม SOP",
+    "crossmatch_bad": "ห้องปฏิบัติการรายงาน crossmatch ไม่เข้ากัน ต้องทบทวนกับธนาคารเลือดก่อนดำเนินการ",
+    "ready": "ข้อมูลพื้นฐานที่กรอกครบสำหรับส่งให้ผู้รับผิดชอบทบทวนต่อ ผลนี้ยังไม่อนุมัติปล่อยหรือให้หน่วยเลือด",
+    "not_ready": "ยังมีข้อมูลหรือเงื่อนไขที่ต้องทบทวน จึงไม่มีข้อสรุปเชิงบวกว่าเข้ากันได้",
+    "release_limit": "ตรวจสอบข้อบ่งชี้ คุณลักษณะเฉพาะของหน่วยเลือด ประวัติผู้ป่วย และการอนุมัติโดยบุคลากรตาม SOP ทุกครั้ง",
+    "reaction_alert": "สงสัยปฏิกิริยาระหว่างหรือหลังให้เลือด: หยุดการให้เลือดทันทีและแจ้งทีมรักษา/ธนาคารเลือด ใช้ระบบฉุกเฉินตามอาการ",
+    "reaction_abc": "ให้ทีมรักษาประเมินทางเดินหายใจ การหายใจ การไหลเวียน และติดตามสัญญาณชีพตามระบบฉุกเฉินของหน่วยงาน",
+    "reaction_iv": "คงการเข้าถึงหลอดเลือดดำ ห้าม flush สายเดิมที่ใช้ให้เลือด และใช้สายใหม่เมื่อจำเป็นตามแนวทางหน่วยงาน",
+    "reaction_check": "ตรวจสอบผู้รับ เอกสาร และถุงเลือดซ้ำ รวมทั้งตรวจลิ่ม สีผิดปกติ หรือความขุ่นของถุง",
+    "reaction_samples": "ประสานธนาคารเลือดเรื่องตัวอย่างหลังเกิดเหตุ ปัสสาวะ ถุงเลือดและสายให้เลือดตาม SOP; บันทึกเหตุการณ์ในระบบของหน่วยงาน",
+    "reaction_no_classify": "อาการที่กรอกไม่เพียงพอจำแนกชนิดปฏิกิริยา ห้ามใช้แอปตัดสินใจเริ่มให้เลือดต่อ",
+    "reaction_conflict": "มีอาการใหม่ที่รายงานแม้เลือกไม่สงสัยปฏิกิริยา ระบบคงคำแจ้งเตือนเพื่อให้ทีมรักษาประเมิน",
+    "multiselect_conflict": "ตัวเลือกไม่มีอาการ/ไม่ทราบขัดกับรายการอาการที่เลือก กรุณาทบทวนข้อมูล",
+    "reaction_unknown": "ยังไม่ระบุสถานะปฏิกิริยาหรืออาการใหม่ จึงยังไม่ถือว่าข้อมูลการทบทวนครบ",
+    "reaction_only": "คำแนะนำเกี่ยวกับปฏิกิริยาแยกจากการประเมิน ABO และไม่ต้องรอกรอกผลความเข้ากันได้ให้ครบ"
+  },
+  "limitations": [
+    "เป็นรายการช่วยทบทวนข้อมูลที่ผู้ใช้รายงาน ไม่ได้เชื่อม LIS ยืนยันตัวตน ทดสอบ crossmatch หรืออนุมัติหน่วยเลือดจริง",
+    "ไม่รองรับการปล่อยเลือดฉุกเฉิน ABO subgroup/weak D/partial D การให้เลือดทารก การปลูกถ่าย หรือข้อกำหนดพิเศษครบทุกชนิด ต้องปรึกษาธนาคารเลือด",
+    "ไม่มีนาฬิกาตรวจอายุสิ่งส่งตรวจอัตโนมัติ ผู้ใช้ต้องยืนยันความใช้ได้ตาม SOP และประวัติที่เกี่ยวข้อง",
+    "แหล่งอ้างอิงต่างประเทศต้องทบทวนตามกฎหมายและ SOP ของหน่วยงานก่อนใช้งานจริง"
+  ],
+  "counseling": [
+    "ให้ผู้รับเลือดแจ้งอาการใหม่ต่อทีมดูแลทันทีระหว่างและหลังให้เลือด",
+    "บันทึกและส่งต่อประวัติแอนติบอดี/ปฏิกิริยาในระบบที่ได้รับอนุญาตของสถานพยาบาล; แอปนี้ไม่เก็บประวัติระบุตัวบุคคล"
+  ],
+  "examples": [
+    {
+      "name": "ตัวอย่าง RBC: ข้อมูลทบทวนครบ",
+      "data": {
+        "component": "rbc",
+        "identity_verified": "yes",
+        "specimen_valid": "yes",
+        "independent_type_verified": "yes",
+        "abo_basis": "forward_reverse",
+        "forward_abo": "A",
+        "reverse_abo": "A",
+        "donor_abo": "O",
+        "patient_rhd": "positive",
+        "donor_rhd": "negative",
+        "antibody_screen": "negative",
+        "antibody_history": "no",
+        "crossmatch_result": "compatible",
+        "crossmatch_method": "iat",
+        "crossmatch_process_validated": "yes",
+        "reaction_suspected": "no",
+        "reaction_symptoms": [
+          "none"
+        ]
+      }
+    },
+    {
+      "name": "ตัวอย่างสงสัยปฏิกิริยา",
+      "data": {
+        "reaction_suspected": "yes",
+        "reaction_symptoms": [
+          "dyspnea",
+          "hypotension"
+        ]
+      }
+    }
+  ]
+}

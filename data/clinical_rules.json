@@ -1,0 +1,534 @@
+{
+  "metadata": {
+    "version": "2026.10-review-4",
+    "status": "draft_for_local_clinical_review",
+    "description_th": "โปรไฟล์ทบทวน: เกณฑ์เดิมของโครงการร่วมกับการแปลผลอย่างระมัดระวัง ยังไม่ผ่านการตรวจสอบความถูกต้องกับ SOP ของหน่วยงาน",
+    "sources": [
+      {
+        "title": "ARUP Consult: Thalassemias",
+        "url": "https://arupconsult.com/content/thalassemias"
+      },
+      {
+        "title": "GeneReviews: Alpha-Thalassemia",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK1435/"
+      }
+    ],
+    "disclaimer_th": "เครื่องมือนี้สนับสนุนการตัดสินใจสำหรับการคัดกรอง ไม่ใช่การวินิจฉัย ต้องทบทวนร่วมกับข้อมูลทางคลินิก วิธีตรวจ และ SOP ของหน่วยงาน",
+    "confidence_note_th": "ความเชื่อมั่นขึ้นกับความครบถ้วนของข้อมูลและวิธีตรวจ คะแนนเป็นน้ำหนักของรูปแบบจากกฎ ยังไม่ผ่านการสอบเทียบและไม่ใช่ความน่าจะเป็นของโรค"
+  },
+  "thresholds": {
+    "mcv_microcytosis": 80,
+    "mch_hypochromia": 26,
+    "hba2_beta_trait": 3.5,
+    "hbf_elevated": 1,
+    "hbf_review": 5,
+    "hb_fraction_min_age_years": 1,
+    "hbe_present": 10,
+    "ferritin_deficient": 15,
+    "ferritin_borderline": 30,
+    "rbc_high": 5,
+    "mentzer_beta_like": 13,
+    "rdw_high": 14.5,
+    "severe_hb": 7,
+    "hba2_review_upper": 10
+  },
+  "age_thresholds": {
+    "mcv_fl": [
+      [
+        0.038356164383561646,
+        98
+      ],
+      [
+        0.08333333333333333,
+        88
+      ],
+      [
+        0.16666666666666666,
+        91
+      ],
+      [
+        0.3333333333333333,
+        84
+      ],
+      [
+        0.5,
+        76
+      ],
+      [
+        0.75,
+        68
+      ],
+      [
+        1,
+        70
+      ],
+      [
+        2,
+        71
+      ],
+      [
+        6,
+        75
+      ],
+      [
+        12,
+        77
+      ]
+    ],
+    "mch_pg": [
+      [
+        0.038356164383561646,
+        31
+      ],
+      [
+        0.08333333333333333,
+        30
+      ],
+      [
+        0.16666666666666666,
+        29
+      ],
+      [
+        0.3333333333333333,
+        27
+      ],
+      [
+        0.5,
+        25
+      ],
+      [
+        0.75,
+        24
+      ],
+      [
+        1,
+        25
+      ],
+      [
+        6,
+        24
+      ],
+      [
+        12,
+        25
+      ]
+    ],
+    "hb_g_dl": [
+      [
+        5,
+        11
+      ],
+      [
+        12,
+        11.5
+      ],
+      [
+        15,
+        12
+      ]
+    ],
+    "hct_percent": [
+      [
+        1,
+        42
+      ],
+      [
+        10,
+        33
+      ],
+      [
+        13,
+        35
+      ],
+      [
+        15,
+        36
+      ]
+    ]
+  },
+  "adult_thresholds": {
+    "hb_g_dl": {
+      "male": 13,
+      "female": 12,
+      "pregnant": 11
+    },
+    "hct_percent": {
+      "male": 40,
+      "female": 36,
+      "pregnant": 33
+    }
+  },
+  "validation": {
+    "description_th": "ขอบเขตตรวจข้อผิดพลาดในการกรอกข้อมูล ไม่ใช่ช่วงอ้างอิงปกติ ต้องทบทวนตามเครื่องมือและประชากร",
+    "required": [
+      "hb_g_dl",
+      "mcv_fl",
+      "mch_pg"
+    ],
+    "fraction_sum_max": 102,
+    "ranges": {
+      "age": [
+        0,
+        120,
+        "อายุ (ปี)"
+      ],
+      "hb_g_dl": [
+        1,
+        25,
+        "Hb (g/dL)"
+      ],
+      "rbc_10e12_l": [
+        0.1,
+        12,
+        "RBC (10¹²/L)"
+      ],
+      "hct_percent": [
+        1,
+        75,
+        "Hct (%)"
+      ],
+      "mcv_fl": [
+        30,
+        150,
+        "MCV (fL)"
+      ],
+      "mch_pg": [
+        5,
+        60,
+        "MCH (pg)"
+      ],
+      "mchc_g_dl": [
+        10,
+        45,
+        "MCHC (g/dL)"
+      ],
+      "rdw_percent": [
+        5,
+        40,
+        "RDW (%)"
+      ],
+      "retic_percent": [
+        0,
+        50,
+        "Reticulocyte (%)"
+      ],
+      "ferritin_ng_ml": [
+        0,
+        10000,
+        "Ferritin (ng/mL)"
+      ],
+      "hba_percent": [
+        0,
+        100,
+        "HbA (%)"
+      ],
+      "hba2_percent": [
+        0,
+        100,
+        "HbA2 ที่แยกวัด (%)"
+      ],
+      "hba2e_percent": [
+        0,
+        100,
+        "HbA2/E รวม (%)"
+      ],
+      "hbf_percent": [
+        0,
+        100,
+        "HbF (%)"
+      ],
+      "hbe_percent": [
+        0,
+        100,
+        "HbE ที่แยกวัด (%)"
+      ],
+      "bart_percent": [
+        0,
+        100,
+        "Hb Bart's (%)"
+      ],
+      "hbh_percent": [
+        0,
+        100,
+        "HbH (%)"
+      ],
+      "hbcs_percent": [
+        0,
+        100,
+        "Hb Constant Spring (%)"
+      ]
+    }
+  },
+  "scores": {
+    "beta_trait_score": {
+      "hba2_high": 38,
+      "micro": 14,
+      "hypo": 10,
+      "high_rbc": 10,
+      "mentzer_beta_like": 10,
+      "hbf_high": 6,
+      "of_pos": 6,
+      "family": 4,
+      "ferritin_low": -15
+    },
+    "alpha_trait_score": {
+      "micro": 20,
+      "hypo": 12,
+      "high_rbc": 12,
+      "mentzer_beta_like": 12,
+      "hba2_not_high": 18,
+      "hbh_pos": 24,
+      "of_pos": 8,
+      "family": 6,
+      "ferritin_low": -12
+    },
+    "hbe_score": {
+      "hbe_present": 46,
+      "dcip_pos": 34,
+      "micro": 8,
+      "hba2_high": 6,
+      "family": 6
+    },
+    "iron_deficiency_score": {
+      "ferritin_low": 44,
+      "ferritin_border_only": 20,
+      "micro": 12,
+      "hypo": 10,
+      "rdw_high": 10,
+      "rbc_not_high": 8,
+      "mentzer_iron_like": 8,
+      "hba2_high": -12
+    }
+  },
+  "risk": {
+    "high_score": 75,
+    "moderate_score": 45
+  },
+  "messages": {
+    "no_pattern": "ไม่พบรูปแบบจำเพาะจากข้อมูลที่ให้ ไม่สามารถตัดพาหะธาลัสซีเมียออกได้",
+    "invalid_pattern": "ข้อมูลไม่ครบหรือไม่ผ่านการตรวจสอบ จึงยังแปลผลคัดกรองไม่ได้",
+    "urgent": "Hb ต่ำกว่าเกณฑ์แจ้งเตือนของโปรไฟล์ ควรให้แพทย์ประเมินโดยเร็ว โดยไม่ขึ้นกับรูปแบบ Hb",
+    "micro": "MCV ต่ำกว่าเกณฑ์ที่ใช้: {mcv_fl:g} < {mcv_microcytosis:g} fL",
+    "hypo": "MCH ต่ำกว่าเกณฑ์ที่ใช้: {mch_pg:g} < {mch_hypochromia:g} pg",
+    "anemia": "Hb/Hct ต่ำกว่าเกณฑ์ตามอายุ เพศ หรือการตั้งครรภ์ของโปรไฟล์",
+    "hba2_high": "HbA2 ที่แยกวัดสูง ({hba2_percent:g}%) ต้องทบทวนวิธีตรวจและภาวะร่วม",
+    "hbf_high": "HbF สูงกว่าเกณฑ์ของโปรไฟล์ ({hbf_percent:g}%) ต้องพิจารณาอายุและบริบท",
+    "combined": "รายงาน HbA2/E เป็นค่ารวม จึงไม่ใช้แทน HbA2 ที่แยกวัดในการระบุพาหะ beta-thalassemia",
+    "resolved_and_combined": "มีทั้ง HbA2/E รวมและผลแยกวัด HbA2 หรือ HbE ต้องทบทวนรายงานต้นฉบับและวิธีตรวจของแต่ละช่อง; ระบบตรวจผลรวมทั้งสองชุดแยกกันโดยไม่นับพีครวมซ้ำ และไม่ถือว่าค่าต่างวิธีต้องเท่ากัน",
+    "transfusion": "มีประวัติรับเลือดล่าสุด ผลสัดส่วน Hb อาจไม่แทนรูปแบบของผู้รับเลือด ควรทบทวนเวลาเก็บตัวอย่างและเลือกวิธียืนยันที่เหมาะสม",
+    "iron_caveat": "ภาวะขาดธาตุเหล็กอาจเปลี่ยนดัชนีเม็ดเลือดและบดบังการเพิ่มขึ้นของ HbA2",
+    "age_caveat": "เกณฑ์และน้ำหนักจากโปรไฟล์นี้ยังไม่ผ่านการรับรองเฉพาะเด็ก โดยเฉพาะทารก ต้องให้ผู้เชี่ยวชาญทบทวน",
+    "default_recommendation": "ทบทวน smear ประวัติครอบครัว และพิจารณา Hb analysis หรือตรวจ DNA ตามข้อบ่งชี้",
+    "default_counseling": "ผลคัดกรองเพียงอย่างเดียวไม่ยืนยันจีโนไทป์ หากสงสัยหรือยืนยันพาหะ ควรตรวจคู่สมรสและรับคำปรึกษาก่อนมีบุตร",
+    "invalid_recommendation": "แก้ไขหรือเติมข้อมูลที่ระบุ แล้วประเมินผลใหม่",
+    "unresolved_genotype": "ยังระบุจีโนไทป์ไม่ได้จากข้อมูลคัดกรอง"
+  },
+  "ee_score": {
+    "applicable": false,
+    "interpretation": "ยังไม่ใช้ EE score เพื่อจำแนก HbE homozygous กับ HbE/beta-thalassemia: ต้องยืนยันสูตร ประชากร และวิธีตรวจตาม SOP; ห้ามใช้ HbA2/E รวมแทน HbA2 ที่แยกวัด"
+  },
+  "partner_screening": {
+    "incomplete": "ผลคัดกรองของคู่ยังไม่ครบหรือไม่ชัดเจน จึงประเมินร่วมกันไม่ได้",
+    "both_positive": "ทั้งคู่มีผลคัดกรองบวก ควรตรวจยืนยันร่วมกันก่อนประเมินความเสี่ยงบุตร",
+    "one_positive": "มีผลคัดกรองบวกอย่างน้อยหนึ่งคน ควรทบทวนและตรวจเพิ่มเติมทั้งคู่ตามข้อบ่งชี้",
+    "negative": "ผล OF/DCIP ที่ให้เป็นลบทั้งคู่ แต่ไม่สามารถตัดพาหะหรือยืนยันความเสี่ยงบุตรจากสองการทดสอบนี้",
+    "recommendations": ["ทบทวน CBC และ Hb analysis ของทั้งคู่; พิจารณา DNA ตาม SOP ประวัติ และผลคัดกรอง", "ความเสี่ยงจีโนไทป์ของบุตรต้องอาศัยจีโนไทป์และ phase ที่ยืนยันแล้ว พร้อมคำปรึกษาก่อนมีบุตร"]
+  },
+  "rules": [
+    {
+      "id": "pediatric_review",
+      "priority": 110,
+      "all": ["infant"],
+      "pattern": "อายุต่ำกว่าขอบเขตแปลผล Hb ของโปรไฟล์: ต้องใช้เกณฑ์เด็กและผู้เชี่ยวชาญ ยังระบุ phenotype/genotype ไม่ได้",
+      "score_floor": 0,
+      "evidence": ["HbA2/HbF เปลี่ยนตามวัยในทารก จึงไม่ใช้เกณฑ์ผู้ใหญ่เพื่อสรุป beta-thalassemia หรือ HPFH; ผล HbE/Bart/HbH/CS ที่รายงานเป็นเพียงสิ่งตรวจพบ"],
+      "tests": ["ให้ผู้เชี่ยวชาญทบทวนผลตามอายุ วิธีตรวจ และ SOP เด็ก/ทารก ก่อนพิจารณาตรวจยืนยัน"],
+      "genotypes": [],
+      "counseling": ["ไม่ใช้ผลคัดกรองในทารกนี้ยืนยันจีโนไทป์หรือคำนวณความเสี่ยงบุตรของครอบครัว"]
+    },
+    {
+      "id": "alpha_variant",
+      "priority": 100,
+      "any": [
+        "hbh_pos",
+        "alpha_variant"
+      ],
+      "none": [],
+      "pattern": "สงสัย alpha-thalassemia / รูปแบบ HbH หรือ Hb Constant Spring ต้องตรวจยืนยัน",
+      "score_floor": 75,
+      "evidence": [
+        "พบ HbH inclusion, HbH, Hb Bart's หรือ Hb Constant Spring ตามค่าที่รายงาน ไม่ใช่การยืนยันจีโนไทป์"
+      ],
+      "tests": [
+        "ทบทวนผล Hb analysis และ smear; ตรวจ HBA1/HBA2 deletion/duplication และ nondeletional variants ตามข้อบ่งชี้"
+      ],
+      "genotypes": [
+        "กลุ่ม HBA1/HBA2 variants หรือ HbH/Constant Spring (ยังไม่ยืนยันชนิดและ phase)"
+      ],
+      "counseling": [
+        "ให้ผู้เชี่ยวชาญทบทวนความรุนแรงและจีโนไทป์ ก่อนประเมินความเสี่ยงบุตร"
+      ]
+    },
+    {
+      "id": "hbe_pattern",
+      "priority": 90,
+      "any": [
+        "hbe_detected",
+        "dcip_pos"
+      ],
+      "pattern": "สงสัย HbE หรือฮีโมโกลบินผิดปกติ ต้องยืนยันชนิด",
+      "score_floor": 65,
+      "evidence": [
+        "พบ HbE ที่รายงานหรือ DCIP ให้ผลบวก; DCIP เพียงอย่างเดียวไม่ระบุชนิดหรือจำนวน allele"
+      ],
+      "tests": [
+        "ยืนยันชนิด Hb ด้วยวิธีที่เหมาะสมหรือวิธีเสริม; พิจารณา HBB testing เมื่อจำเป็นต้องทราบจีโนไทป์"
+      ],
+      "genotypes": [
+        "HbE หรือ structural HBB variant (ยังไม่ยืนยัน zygosity หรือการร่วมกับ beta-thalassemia)"
+      ],
+      "counseling": [
+        "ควรตรวจคู่สมรสด้วย CBC และ Hb analysis; ประเมินความเสี่ยงบุตรหลังยืนยันจีโนไทป์"
+      ]
+    },
+    {
+      "id": "combined_peak",
+      "priority": 80,
+      "all": [
+        "combined_present"
+      ],
+      "none": [
+        "hbe_detected",
+        "dcip_pos",
+        "hba2_high"
+      ],
+      "pattern": "HbA2/E เป็นค่ารวม ยังแยก HbA2 กับ HbE เพื่อระบุจีโนไทป์ไม่ได้",
+      "score_floor": 45,
+      "evidence": [
+        "พีครวม HbA2/E อาจมีองค์ประกอบซ้อนกัน ต้องทบทวนวิธีตรวจและโครมาโทแกรมจริง"
+      ],
+      "tests": [
+        "ตรวจ Hb analysis ด้วยวิธีที่แยก HbA2/HbE หรือให้ผู้เชี่ยวชาญทบทวนผลก่อนพิจารณา HBB testing"
+      ],
+      "genotypes": [
+        "ยังระบุ beta-thalassemia หรือ HbE genotype จากพีครวมไม่ได้"
+      ],
+      "counseling": []
+    },
+    {
+      "id": "beta_trait",
+      "priority": 70,
+      "all": [
+        "eligible_age",
+        "hba2_high",
+        "hba2_within_trait_range"
+      ],
+      "none": [
+        "hbe_detected",
+        "dcip_pos",
+        "transfusion"
+      ],
+      "pattern": "สงสัย beta-thalassemia trait (HbA2 ที่แยกวัดสูง) อาจมีภาวะอื่นร่วม",
+      "score_floor": 75,
+      "evidence": [
+        "HbA2 ที่แยกวัดสูงสนับสนุน beta-thalassemia trait โดยเฉพาะเมื่อ MCV/MCH ต่ำ; ต้องพิจารณาวิธีตรวจ"
+      ],
+      "tests": [
+        "ตรวจ DNA วิเคราะห์ยีน HBB ตามข้อบ่งชี้; ตรวจคู่สมรสและทบทวนผลกับผู้เชี่ยวชาญ"
+      ],
+      "genotypes": [
+        "พาหะ HBB variant ที่ทำให้ beta-thalassemia (ยังไม่ยืนยัน allele)"
+      ],
+      "counseling": [
+        "ตรวจคู่สมรสและให้คำปรึกษาก่อนมีบุตร; การคัดกรองยังไม่ยืนยันจีโนไทป์"
+      ]
+    },
+    {
+      "id": "high_fraction_review",
+      "priority": 68,
+      "all": ["eligible_age"],
+      "any": [
+        "hba2_very_high",
+        "hbf_review"
+      ],
+      "pattern": "HbA2 หรือ HbF สูงผิดแบบ ต้องทบทวนวิธีตรวจและ globin variants",
+      "score_floor": 65,
+      "evidence": [
+        "สัดส่วน Hb ที่สูงผิดแบบไม่เพียงพอสำหรับแยก beta-thalassemia, variant หรือ HPFH"
+      ],
+      "tests": [
+        "ให้ผู้เชี่ยวชาญทบทวน Hb analysis อายุ ประวัติรับเลือด และพิจารณา molecular testing ตามรูปแบบ"
+      ],
+      "genotypes": [
+        "ยังระบุ HBB/HPFH หรือ variant genotype ไม่ได้"
+      ],
+      "counseling": []
+    },
+    {
+      "id": "iron_deficiency",
+      "priority": 60,
+      "all": [
+        "ferritin_low"
+      ],
+      "pattern": "สนับสนุนภาวะขาดธาตุเหล็ก อาจมีธาลัสซีเมียร่วม",
+      "score_floor": 65,
+      "evidence": [
+        "Ferritin ต่ำกว่าเกณฑ์ของโปรไฟล์ สนับสนุนการขาดธาตุเหล็ก แต่ไม่ตัดธาลัสซีเมียร่วม"
+      ],
+      "tests": [
+        "ประเมิน iron status และบริบทการอักเสบ; ทบทวน HbA2 หลังแก้ไขภาวะขาดธาตุเหล็กตามแผนแพทย์"
+      ],
+      "genotypes": [],
+      "counseling": [
+        "ไม่ควรสรุปว่ามีหรือไม่มีพาหะจาก iron status เพียงอย่างเดียว"
+      ]
+    },
+    {
+      "id": "micro_unresolved",
+      "priority": 50,
+      "any": [
+        "micro",
+        "hypo"
+      ],
+      "none": [
+        "hba2_high",
+        "hbe_detected",
+        "dcip_pos",
+        "alpha_variant",
+        "hbh_pos",
+        "ferritin_low"
+      ],
+      "pattern": "เม็ดเลือดแดงขนาดเล็ก/ติดสีจาง ยังแยก alpha-thalassemia จาก iron deficiency ไม่ได้",
+      "score_floor": 45,
+      "evidence": [
+        "MCV/MCH ต่ำ และยังไม่มีข้อมูลยืนยันสาเหตุ; แม้ HbA2 ไม่สูงก็ไม่ตัด alpha-thalassemia"
+      ],
+      "tests": [
+        "ตรวจ ferritin และประเมินบริบทการอักเสบ; พิจารณา alpha-thal 1 PCR / HBA1-HBA2 testing ตาม SOP และความเสี่ยงคู่สมรส"
+      ],
+      "genotypes": [
+        "พาหะ alpha-thalassemia เป็นไปได้ (ยังไม่ยืนยัน); ต้องแยก iron deficiency และภาวะร่วม"
+      ],
+      "counseling": [
+        "พิจารณาตรวจคู่สมรสและให้คำปรึกษาก่อนมีบุตรเมื่อมีความเสี่ยง; ต้องยืนยัน alpha-thal 1 และ phase ก่อนคำนวณความเสี่ยงบุตร"
+      ]
+    },
+    {
+      "id": "of_screen",
+      "priority": 20,
+      "all": [
+        "of_pos"
+      ],
+      "pattern": "OF/NESTROFT ให้ผลบวก ต้องประเมินร่วมกับ CBC และ Hb analysis",
+      "score_floor": 30,
+      "evidence": [
+        "OF/NESTROFT เป็นการคัดกรอง ไม่ระบุชนิดพาหะ"
+      ],
+      "tests": [
+        "ทบทวน CBC และตรวจ Hb analysis; ประเมิน iron status และ molecular testing ตามข้อบ่งชี้"
+      ],
+      "genotypes": [],
+      "counseling": []
+    }
+  ]
+}

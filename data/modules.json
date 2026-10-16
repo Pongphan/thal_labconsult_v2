@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "name": "ThalLink",
+  "subtitle": "Hematologic Platform",
+  "modules": [
+    {
+      "id": "cbc_anemia",
+      "presentation": {"group": "red_cells", "icon": ":material/hematology:", "tone": "rose", "short_name": "CBC & anemia"},
+      "title": "CBC ภาวะโลหิตจาง และเม็ดเลือดแดง",
+      "status": "draft",
+      "summary": "เริ่มต้นประเมิน Hb และรูปแบบ MCV ในผู้ใหญ่ พร้อมทบทวนผล CBC ตามช่วงอ้างอิงของห้องปฏิบัติการ",
+      "scope": "รุ่นเริ่มต้นมีขอบเขตอายุและการตั้งครรภ์กำกับ ไม่สรุปสาเหตุของโรคจาก CBC เพียงอย่างเดียว",
+      "planned_scope": "ขยายการประเมินภาวะเม็ดเลือดแดงแตก ความผิดปกติของเยื่อหุ้ม/เอนไซม์เม็ดเลือดแดง เม็ดเลือดแดงสูง และความผิดปกติของธาตุเหล็ก",
+      "routes": [
+        {
+          "key": "CBC and anemia",
+          "title": "CBC และภาวะโลหิตจาง",
+          "path": "pages/3_CBC_Anemia.py",
+          "icon": "🔬",
+          "caption": "ทบทวน CBC รูปแบบโลหิตจาง เหตุผล และแนวทางตรวจเพิ่มเติม",
+          "badge": "โมดูลใหม่ · ร่าง"
+        }
+      ]
+    },
+    {
+      "id": "thalassemia",
+      "presentation": {"group": "red_cells", "icon": ":material/genetics:", "tone": "lavender", "short_name": "Thalassemia"},
+      "title": "ธาลัสซีเมียและความผิดปกติของฮีโมโกลบิน",
+      "status": "draft",
+      "summary": "ระบบ ThalLink เดิม: คัดกรองรายตัวอย่าง/CSV, Hb typing, PCR และแบบจำลองพันธุกรรมของคู่",
+      "scope": "กฎคัดกรองรอทบทวนตาม SOP; แผง PCR เป็นตัวอย่างสาธิต ผลไม่ใช่การยืนยันจีโนไทป์",
+      "planned_scope": "ทบทวนกฎกับหน่วยงานและเพิ่ม hemoglobin variants ตามขอบเขตวิธีตรวจที่ผ่านการตรวจสอบ",
+      "routes": [
+        {
+          "key": "Laboratory screening",
+          "title": "คัดกรองธาลัสซีเมีย",
+          "path": "pages/1_Laboratory_Screening_Test.py",
+          "icon": "🧪",
+          "caption": "CBC, ferritin, Hb typing, OF/DCIP/HbH inclusion และแผนตรวจยืนยัน",
+          "badge": "Thalassemia"
+        },
+        {
+          "key": "PCR allele matching",
+          "title": "PCR และความเสี่ยงคู่",
+          "path": "pages/2_PCR_Allele_Matching.py",
+          "icon": "🧬",
+          "caption": "ทบทวนแผงตรวจ α/β-globin ผล PCR และแบบจำลองจีโนไทป์ของคู่",
+          "badge": "พันธุกรรม"
+        }
+      ]
+    },
+    {
+      "id": "white_cells",
+      "presentation": {"group": "white_cells", "icon": ":material/biotech:", "tone": "sky", "short_name": "White cells"},
+      "title": "ความผิดปกติของเม็ดเลือดขาว",
+      "status": "draft",
+      "summary": "ทบทวน WBC และ differential คำนวณจำนวนเซลล์สัมบูรณ์ เปรียบเทียบช่วงอ้างอิง และประเมินข้อเตือนจาก ANC/ไข้และ blast",
+      "scope": "ใช้ผลที่ตรวจจริงและช่วงอ้างอิงที่ระบุ แยกข้อมูลไม่ครบและข้อขัดแย้ง ไม่ยืนยันสาเหตุหรือวินิจฉัยมะเร็งจากจำนวนเซลล์",
+      "planned_scope": "เชื่อมผล differential, absolute counts และ blood smear โดยกำหนดเกณฑ์ตามอายุและบริบท",
+      "routes": [
+        {
+          "key": "White cells",
+          "title": "เม็ดเลือดขาว",
+          "path": "pages/4_White_Cells.py",
+          "icon": "🔍",
+          "caption": "ทบทวน WBC และ differential คำนวณจำนวนเซลล์สัมบูรณ์ เปรียบเทียบช่วงอ้างอิง และประเมินข้อเตือนจาก ANC/ไข้และ blast",
+          "badge": "เปิดทดลอง · รอทบทวน"
+        }
+      ]
+    },
+    {
+      "id": "marrow_malignancies",
+      "presentation": {"group": "white_cells", "icon": ":material/hub:", "tone": "lilac", "short_name": "Bone marrow"},
+      "title": "ไขกระดูกและมะเร็งทางโลหิตวิทยา",
+      "status": "draft",
+      "summary": "รวบรวม CBC, blast, flow cytometry, molecular tests และหลักฐานทางคลินิก เพื่อทบทวนกลุ่มโรคและการตรวจที่ยังขาด",
+      "scope": "เป็นพื้นที่ทบทวนหลักฐานและแนวทางตรวจยืนยัน ไม่จัดจำแนกมะเร็งหรือวินิจฉัยโรคไขกระดูกจากตัวเลขเพียงอย่างเดียว",
+      "planned_scope": "จัดระบบหลักฐานจาก morphology, flow cytometry, cytogenetics และ molecular tests สำหรับผู้เชี่ยวชาญทบทวน",
+      "routes": [
+        {
+          "key": "Marrow and malignancies",
+          "title": "ไขกระดูกและมะเร็งทางโลหิตวิทยา",
+          "path": "pages/5_Marrow_Malignancies.py",
+          "icon": "🧬",
+          "caption": "รวบรวม CBC, blast, flow cytometry, molecular tests และหลักฐานทางคลินิก เพื่อทบทวนกลุ่มโรคและการตรวจที่ยังขาด",
+          "badge": "เปิดทดลอง · รอทบทวน"
+        }
+      ]
+    },
+    {
+      "id": "platelets_bleeding",
+      "presentation": {"group": "other", "icon": ":material/water_drop:", "tone": "peach", "short_name": "Platelets & bleeding"},
+      "title": "เกล็ดเลือดและภาวะเลือดออก",
+      "status": "draft",
+      "summary": "ทบทวน platelet count, clumping, PT/aPTT, fibrinogen และประวัติเลือดออก พร้อมประเมินคุณภาพตัวอย่างและผลรบกวนจากยา",
+      "scope": "ใช้ช่วงอ้างอิงและบริบทที่ระบุ ช่วยเลือกการตรวจต่อ ไม่สรุป DIC หรือ bleeding disorder จากผลที่ไม่ครบ",
+      "planned_scope": "เริ่มจากการทบทวน specimen quality, platelet count, PT/aPTT และประวัติเลือดออก ก่อนเพิ่มการตรวจจำเพาะ",
+      "routes": [
+        {
+          "key": "Platelets and bleeding",
+          "title": "เกล็ดเลือดและภาวะเลือดออก",
+          "path": "pages/6_Platelets_Bleeding.py",
+          "icon": "🩸",
+          "caption": "ทบทวน platelet count, clumping, PT/aPTT, fibrinogen และประวัติเลือดออก พร้อมประเมินคุณภาพตัวอย่างและผลรบกวนจากยา",
+          "badge": "เปิดทดลอง · รอทบทวน"
+        }
+      ]
+    },
+    {
+      "id": "thrombosis",
+      "presentation": {"group": "other", "icon": ":material/cardiology:", "tone": "butter", "short_name": "Thrombosis"},
+      "title": "ภาวะลิ่มเลือดและการตรวจทางห้องปฏิบัติการ",
+      "status": "draft",
+      "summary": "ทบทวน clinical pretest probability ที่ประเมินแล้ว ผล D-dimer หน่วย/ชนิดการรายงาน ผลภาพวินิจฉัย และข้อจำกัดของ thrombophilia tests",
+      "scope": "ไม่คำนวณขนาดยา ไม่ใช้ D-dimer เพียงค่าเดียวตัดภาวะลิ่มเลือด และไม่สมมติว่าหน่วยหรือเส้นทางตรวจต่างชนิดใช้แทนกันได้",
+      "planned_scope": "ออกแบบการแปลผลตามบริบท ยาที่ใช้ เวลาที่เก็บตัวอย่าง และแนวทางที่หน่วยงานรับรอง",
+      "routes": [
+        {
+          "key": "Thrombosis",
+          "title": "ภาวะลิ่มเลือด",
+          "path": "pages/7_Thrombosis.py",
+          "icon": "🫀",
+          "caption": "ทบทวน clinical pretest probability ที่ประเมินแล้ว ผล D-dimer หน่วย/ชนิดการรายงาน ผลภาพวินิจฉัย และข้อจำกัดของ thrombophilia tests",
+          "badge": "เปิดทดลอง · รอทบทวน"
+        }
+      ]
+    },
+    {
+      "id": "transfusion",
+      "presentation": {"group": "other", "icon": ":material/bloodtype:", "tone": "coral", "short_name": "Transfusion"},
+      "title": "เวชศาสตร์การให้เลือด",
+      "status": "draft",
+      "summary": "ทบทวน ABO/RhD ตามชนิดส่วนประกอบเลือด antibody screen, crossmatch และเงื่อนไขก่อนให้เลือด พร้อมข้อเตือนเมื่อสงสัยปฏิกิริยาจากการให้เลือด",
+      "scope": "ผลเป็นการทบทวนหลักฐาน ไม่ใช่การอนุมัติจ่ายเลือดหรือคำสั่งให้เลือด ต้องดำเนินการตาม SOP ธนาคารเลือด",
+      "planned_scope": "พัฒนากระบวนการทบทวนผลและข้อขัดแย้งร่วมกับระบบธนาคารเลือดและ SOP ของหน่วยงาน",
+      "routes": [
+        {
+          "key": "Transfusion",
+          "title": "เวชศาสตร์การให้เลือด",
+          "path": "pages/8_Transfusion.py",
+          "icon": "💉",
+          "caption": "ทบทวน ABO/RhD ตามชนิดส่วนประกอบเลือด antibody screen, crossmatch และเงื่อนไขก่อนให้เลือด พร้อมข้อเตือนเมื่อสงสัยปฏิกิริยาจากการให้เลือด",
+          "badge": "เปิดทดลอง · รอทบทวน"
+        }
+      ]
+    },
+    {
+      "id": "morphology_quality",
+      "presentation": {"group": "other", "icon": ":material/labs:", "tone": "mint", "short_name": "Morphology & quality"},
+      "title": "สัณฐานวิทยาและคุณภาพห้องปฏิบัติการ",
+      "status": "draft",
+      "summary": "บันทึกสิ่งที่ผู้ตรวจพบใน blood smear คำนวณ manual differential และทบทวนคุณภาพตัวอย่าง เวลาเก็บ และ instrument flags",
+      "scope": "ใช้สิ่งที่ผู้ตรวจระบุ ไม่อ่านภาพหรือจำแนกเซลล์ด้วย AI และไม่ให้ผลด้านรูปร่างเซลล์แทนการทบทวนของผู้เชี่ยวชาญ",
+      "planned_scope": "เริ่มจากแบบบันทึก morphology และศัพท์มาตรฐาน ก่อนพิจารณาระบบภาพที่ผ่านการประเมิน",
+      "routes": [
+        {
+          "key": "Morphology and quality",
+          "title": "สัณฐานวิทยาและคุณภาพ",
+          "path": "pages/9_Morphology_Quality.py",
+          "icon": "🔬",
+          "caption": "บันทึกสิ่งที่ผู้ตรวจพบใน blood smear คำนวณ manual differential และทบทวนคุณภาพตัวอย่าง เวลาเก็บ และ instrument flags",
+          "badge": "เปิดทดลอง · รอทบทวน"
+        }
+      ]
+    }
+  ]
+}

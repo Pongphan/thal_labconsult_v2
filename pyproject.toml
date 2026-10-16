@@ -1,0 +1,23 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra --strict-markers"
+junit_family = "xunit2"
+
+[tool.coverage.run]
+branch = true
+source = ["logic", "ui", "utils", "thalab", "pages"]
+relative_files = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 80
+precision = 2
+
+[tool.ruff]
+target-version = "py312"
+extend-exclude = [".tools", ".venv", "deliverables"]
+
+[tool.ruff.lint]
+# Start with correctness checks; avoid a formatting-only rewrite of existing code.
+select = ["E9", "F63", "F7", "F82"]

@@ -1,0 +1,484 @@
+{
+  "metadata": {
+    "module_id": "thrombosis",
+    "title": "ภาวะลิ่มเลือดและ D-dimer",
+    "version": "thrombosis-draft-2026.10.07",
+    "status": "draft_requires_local_validation",
+    "scope": "ช่วยทบทวนเส้นทางตรวจ suspected lower-limb DVT/PE ในผู้ใหญ่ที่ไม่ตั้งครรภ์ โดยผู้ประกอบวิชาชีพเป็นผู้ประเมิน pretest probability; ไม่วินิจฉัยหรือสั่งยา",
+    "disclaimer": "ผลนี้ไม่ยืนยันหรือปฏิเสธ VTE จาก D-dimer เพียงค่าเดียว ไม่แทน imaging หรือการประเมินทางคลินิก และไม่กำหนดขนาดยาต้านการแข็งตัวของเลือด",
+    "sources": [
+      {
+        "title": "ASH 2018 VTE diagnosis guideline",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6258916/",
+        "use": "Select diagnostic pathway using pretest probability; positive D-dimer alone does not establish VTE; high PTP needs imaging."
+      },
+      {
+        "title": "NICE NG158 recommendations",
+        "url": "https://www.nice.org.uk/guidance/ng158/chapter/Recommendations",
+        "use": "Clinical assessment with imaging and validated D-dimer pathways for adults; no automatic age adjustment implemented."
+      },
+      {
+        "title": "ARUP: Hereditary Thrombophilia",
+        "url": "https://arupconsult.com/content/hypercoagulable-states",
+        "use": "Review indications and acute-event/anticoagulant interference before functional thrombophilia assays."
+      }
+    ]
+  },
+  "fields": [
+    {
+      "key": "age",
+      "label": "อายุ",
+      "type": "number",
+      "section": "บริบทและความเร่งด่วน",
+      "unit": "ปี",
+      "min": 0,
+      "max": 120
+    },
+    {
+      "key": "pregnant",
+      "label": "ตั้งครรภ์",
+      "type": "select",
+      "section": "บริบทและความเร่งด่วน",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่เกี่ยวข้อง"
+        }
+      ]
+    },
+    {
+      "key": "unstable",
+      "label": "หอบมาก เจ็บหน้าอกรุนแรง เป็นลม หรือระบบไหลเวียนไม่คงที่",
+      "type": "select",
+      "section": "บริบทและความเร่งด่วน",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่เกี่ยวข้อง"
+        }
+      ]
+    },
+    {
+      "key": "suspected_site",
+      "label": "ตำแหน่งที่สงสัย",
+      "type": "select",
+      "section": "บริบทและความเร่งด่วน",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ยังไม่ระบุ"
+        },
+        {
+          "value": "dvt_leg",
+          "label": "DVT ขา"
+        },
+        {
+          "value": "pe",
+          "label": "Pulmonary embolism"
+        },
+        {
+          "value": "other",
+          "label": "ตำแหน่งอื่น"
+        }
+      ]
+    },
+    {
+      "key": "pretest_probability",
+      "label": "ความน่าจะเป็นก่อนตรวจที่ผู้ประกอบวิชาชีพระบุ",
+      "type": "select",
+      "section": "การประเมินก่อนตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ยังไม่ได้ประเมิน"
+        },
+        {
+          "value": "low",
+          "label": "ต่ำ"
+        },
+        {
+          "value": "intermediate",
+          "label": "ปานกลาง"
+        },
+        {
+          "value": "high",
+          "label": "สูง"
+        }
+      ]
+    },
+    {
+      "key": "symptoms_current",
+      "label": "กำลังประเมินอาการที่สงสัย VTE",
+      "type": "select",
+      "section": "การประเมินก่อนตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่เกี่ยวข้อง"
+        }
+      ]
+    },
+    {
+      "key": "recurrent_vte",
+      "label": "กำลังสงสัย VTE เกิดซ้ำ",
+      "type": "select",
+      "section": "การประเมินก่อนตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่เกี่ยวข้อง"
+        }
+      ]
+    },
+    {
+      "key": "anticoagulant_use",
+      "label": "ใช้ยาต้านการแข็งตัวอยู่หรือเพิ่งใช้",
+      "type": "select",
+      "section": "การประเมินก่อนตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่เกี่ยวข้อง"
+        }
+      ]
+    },
+    {
+      "key": "imaging_status",
+      "label": "ผล imaging ที่ผู้ทบทวนระบุ",
+      "type": "select",
+      "section": "Imaging",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่มีข้อมูล"
+        },
+        {
+          "value": "not_performed",
+          "label": "ยังไม่ได้ทำ"
+        },
+        {
+          "value": "pending",
+          "label": "รอผล"
+        },
+        {
+          "value": "positive",
+          "label": "รายงานพบ VTE"
+        },
+        {
+          "value": "negative",
+          "label": "รายงานไม่พบ"
+        },
+        {
+          "value": "inconclusive",
+          "label": "สรุปไม่ได้ / คุณภาพไม่พอ"
+        }
+      ]
+    },
+    {
+      "key": "ddimer_value",
+      "label": "D-dimer ที่วัดได้",
+      "type": "number",
+      "section": "D-dimer และเกณฑ์วิธีตรวจ",
+      "unit": "ตามหน่วยที่เลือก",
+      "min": 0,
+      "max": 1000000
+    },
+    {
+      "key": "ddimer_unit",
+      "label": "หน่วยของค่าที่วัด",
+      "type": "select",
+      "section": "D-dimer และเกณฑ์วิธีตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ"
+        },
+        {
+          "value": "ng_ml",
+          "label": "ng/mL"
+        },
+        {
+          "value": "ug_l",
+          "label": "µg/L"
+        },
+        {
+          "value": "mg_l",
+          "label": "mg/L"
+        }
+      ]
+    },
+    {
+      "key": "ddimer_basis",
+      "label": "ชนิดรายงานของค่าที่วัด",
+      "type": "select",
+      "section": "D-dimer และเกณฑ์วิธีตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ"
+        },
+        {
+          "value": "feu",
+          "label": "FEU"
+        },
+        {
+          "value": "ddu",
+          "label": "DDU"
+        }
+      ]
+    },
+    {
+      "key": "ddimer_cutoff",
+      "label": "เกณฑ์ของวิธีตรวจ / pathway ที่หน่วยงานเลือก",
+      "type": "number",
+      "section": "D-dimer และเกณฑ์วิธีตรวจ",
+      "unit": "ตามหน่วยเกณฑ์",
+      "min": 0.000001,
+      "max": 1000000
+    },
+    {
+      "key": "cutoff_unit",
+      "label": "หน่วยของเกณฑ์",
+      "type": "select",
+      "section": "D-dimer และเกณฑ์วิธีตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ"
+        },
+        {
+          "value": "ng_ml",
+          "label": "ng/mL"
+        },
+        {
+          "value": "ug_l",
+          "label": "µg/L"
+        },
+        {
+          "value": "mg_l",
+          "label": "mg/L"
+        }
+      ]
+    },
+    {
+      "key": "cutoff_basis",
+      "label": "ชนิดรายงานของเกณฑ์",
+      "type": "select",
+      "section": "D-dimer และเกณฑ์วิธีตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ"
+        },
+        {
+          "value": "feu",
+          "label": "FEU"
+        },
+        {
+          "value": "ddu",
+          "label": "DDU"
+        }
+      ]
+    },
+    {
+      "key": "cutoff_validated",
+      "label": "ยืนยันว่าเกณฑ์ตรงกับ assay และ pathway ของหน่วยงาน",
+      "type": "select",
+      "section": "D-dimer และเกณฑ์วิธีตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่เกี่ยวข้อง"
+        }
+      ]
+    },
+    {
+      "key": "high_sensitivity_assay",
+      "label": "ยืนยันว่า assay ความไวสูงเหมาะกับ pathway นี้",
+      "type": "select",
+      "section": "D-dimer และเกณฑ์วิธีตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่เกี่ยวข้อง"
+        }
+      ]
+    },
+    {
+      "key": "thrombophilia_requested",
+      "label": "กำลังพิจารณาตรวจ thrombophilia",
+      "type": "select",
+      "section": "การตรวจเฉพาะทาง",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่เกี่ยวข้อง"
+        }
+      ]
+    },
+    {
+      "key": "acute_event",
+      "label": "อยู่ระหว่างเหตุการณ์ลิ่มเลือดเฉียบพลัน",
+      "type": "select",
+      "section": "การตรวจเฉพาะทาง",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่เกี่ยวข้อง"
+        }
+      ]
+    }
+  ],
+  "thresholds": {
+    "adult_min_years": 18
+  },
+  "messages": {
+    "urgent": "มีอาการที่อาจเป็นภาวะฉุกเฉิน ควรรับการประเมินเร่งด่วนตามระบบของหน่วยงาน ไม่รอผล D-dimer หรือผลจากโปรแกรม",
+    "scope": "ยังไม่เข้าเงื่อนไขเส้นทาง D-dimer ของรุ่นนี้: ต้องทราบอายุผู้ใหญ่ ยืนยันไม่ตั้งครรภ์/ไม่เกี่ยวข้อง และระบุ suspected DVT ขาหรือ PE",
+    "pretest_missing": "ต้องให้ผู้ประกอบวิชาชีพประเมิน pretest probability ตามเครื่องมือ/แนวทางที่เหมาะสมก่อนเลือกเส้นทางตรวจ; โปรแกรมไม่คำนวณ Wells จากข้อมูลไม่ครบ",
+    "high_pretest": "ความน่าจะเป็นก่อนตรวจสูง: ไม่ใช้ D-dimer ต่ำเพื่อปฏิเสธ VTE ควรประเมิน imaging ตามตำแหน่งและบริบท",
+    "intermediate": "ความน่าจะเป็นก่อนตรวจปานกลาง: ต้องเลือก pathway ที่ผ่านการตรวจสอบสำหรับตำแหน่งนั้น รุ่นนี้ไม่สรุปการตัด VTE จาก D-dimer ต่ำในกลุ่มนี้",
+    "imaging_dvt": "พิจารณา compression ultrasound ตามแนวทาง DVT ขา โดยผู้รักษา; หากผลไม่ชัดเจนหรือขัดกับความสงสัย ให้ทบทวนตำแหน่ง/ขอบเขตและแผนตรวจซ้ำ",
+    "imaging_pe": "พิจารณา imaging ที่เหมาะสมต่อ PE เช่น CTPA หรือ V/Q ตามข้อบ่งชี้และข้อจำกัดของบุคคล โดยผู้รักษา",
+    "imaging_positive": "มีรายงาน imaging พบ VTE: ส่งให้ผู้ประกอบวิชาชีพทบทวนและจัดการตามบริบทโดยเร็ว ผลจากโปรแกรมไม่อ่านหรือยืนยันภาพเอง",
+    "imaging_negative": "มีรายงาน imaging ไม่พบ VTE ต้องตรวจความเหมาะสม คุณภาพ ชนิดการตรวจ และความสอดคล้องกับ pretest probability; ไม่สรุปว่าไม่มีโรคจากช่องรายงานนี้",
+    "imaging_unresolved": "Imaging ยังรอผล ไม่ได้ตรวจ หรือสรุปไม่ได้: เส้นทางตรวจยังไม่เสร็จ ห้ามรายงานว่าปฏิเสธ VTE แล้ว",
+    "imaging_discordant": "ผล imaging ไม่พบหรือไม่ชัดเจนแต่ความสงสัยสูง ควรให้ผู้เชี่ยวชาญทบทวนและพิจารณาตรวจเพิ่มเติม/ซ้ำตามแนวทางของตำแหน่งนั้น",
+    "units_missing": "ยังเปรียบเทียบ D-dimer ไม่ได้: ต้องมีค่า เกณฑ์ หน่วย และชนิด FEU/DDU ของทั้งค่าและเกณฑ์อย่างครบถ้วน",
+    "units_mismatch": "หน่วยหรือชนิด FEU/DDU ของผลและเกณฑ์ไม่ตรงกัน จึงไม่จัดผลว่าต่ำ/สูงหรือเป็นลบ; ตรวจรายงานต้นทาง โปรแกรมไม่แปลงหน่วยหรือ FEU/DDU อัตโนมัติ",
+    "assay_unconfirmed": "ยังไม่ยืนยันว่าเกณฑ์ตรงกับ assay และ pathway จึงไม่จัดผล D-dimer เพื่อใช้ตัด VTE",
+    "ratio": "อัตราส่วน D-dimer ต่อเกณฑ์ที่ผู้ใช้ยืนยัน = {ratio:g}; ไม่ใช่ความน่าจะเป็นของ VTE",
+    "above": "D-dimer เท่ากับหรือสูงกว่าเกณฑ์ที่ยืนยัน ต้องประเมินตามบริบทและ imaging เมื่อมีข้อบ่งชี้; ผลนี้ไม่วินิจฉัย VTE",
+    "below_eligible": "D-dimer ต่ำกว่าเกณฑ์ที่ยืนยันในข้อมูล low pretest ที่เข้าเงื่อนไขต้นแบบ เป็นองค์ประกอบหนึ่งของ pathway ที่ผู้ประกอบวิชาชีพต้องตรวจสอบ ไม่ใช่การปฏิเสธ VTE โดยโปรแกรม",
+    "below_not_eligible": "ตัวเลข D-dimer ไม่ถูกนำไปสรุปผลลบเพื่อตัด VTE เพราะข้อมูลบริบท ความไวของ assay ยา การสงสัยเกิดซ้ำ หรือขอบเขตเส้นทางยังไม่เหมาะสม/ไม่ครบ",
+    "anticoagulant": "การใช้ยาต้านการแข็งตัวหรือประวัติที่ยังไม่ชัดเจนอาจเปลี่ยนการเลือกและแปลผลการตรวจ ต้องทบทวนก่อนใช้ D-dimer ต่ำเพื่อสรุปเส้นทาง",
+    "recurrence": "การสงสัยเกิดซ้ำต้องใช้เส้นทางเฉพาะและอาจต้องเทียบภาพเดิม รุ่นนี้ไม่ใช้ D-dimer ต่ำเพื่อสรุป VTE เกิดซ้ำ",
+    "thrombophilia": "ตรวจ thrombophilia เมื่อมีข้อบ่งชี้และผลจะเปลี่ยนการดูแล โดยให้ผู้เชี่ยวชาญเลือกชนิด/เวลาตรวจ ไม่สั่ง panel ทุกคนจาก D-dimer สูง",
+    "thrombophilia_interference": "ระยะเฉียบพลัน การตั้งครรภ์ และยาต้านการแข็งตัวอาจทำให้ functional/antigenic thrombophilia assays คลุมเครือ ต้องวางแผนเวลาตรวจและการยืนยันกับผู้เชี่ยวชาญ ไม่หยุดยาเอง",
+    "invalid": "แก้ข้อมูลที่ไม่ผ่านการตรวจสอบก่อนใช้เส้นทางแปลผล; ข้อแจ้งเตือนจากอาการและรายงาน imaging ยังต้องได้รับการทบทวน",
+    "missing": "เติมบริบทที่จำเป็นและผลตรวจจริง ค่าที่ไม่ทราบไม่ถือว่าปกติหรือผลลบ"
+  },
+  "limitations": [
+    "ผู้ใช้เป็นผู้ประเมิน pretest probability โปรแกรมไม่คำนวณ Wells/PERC และไม่รับรองว่าใช้คะแนนถูกบริบท",
+    "ไม่ใช้ D-dimer เพียงอย่างเดียวเพื่อยืนยันหรือตัด VTE; ไม่ปรับเกณฑ์ตามอายุหรือแปลง FEU/DDU อัตโนมัติ",
+    "รุ่นนี้เน้นผู้ใหญ่ไม่ตั้งครรภ์และ suspected DVT ขาหรือ PE; ตำแหน่งอื่นและการสงสัยเกิดซ้ำต้องใช้เส้นทางเฉพาะ",
+    "ไม่กำหนดยา ขนาดยา ระยะรักษา หรือการหยุดยา; ขอบเขตตัวเลขเป็นตัวกรองข้อมูล ไม่ใช่ช่วงอ้างอิง"
+  ],
+  "counseling": [
+    "อธิบายว่า D-dimer สูงมีหลายสาเหตุ ส่วนผลต่ำต้องอยู่ใน pathway ที่เหมาะสม; หากอาการมากขึ้นให้รับการประเมินใหม่ทันที"
+  ],
+  "examples": [
+    {
+      "name": "ตัวอย่างสมมติ low pretest และ D-dimer ต่ำ",
+      "data": {
+        "age": 40,
+        "pregnant": "no",
+        "unstable": "no",
+        "suspected_site": "dvt_leg",
+        "pretest_probability": "low",
+        "symptoms_current": "yes",
+        "recurrent_vte": "no",
+        "anticoagulant_use": "no",
+        "imaging_status": "not_performed",
+        "ddimer_value": 200,
+        "ddimer_cutoff": 500,
+        "ddimer_unit": "ng_ml",
+        "cutoff_unit": "ng_ml",
+        "ddimer_basis": "feu",
+        "cutoff_basis": "feu",
+        "cutoff_validated": "yes",
+        "high_sensitivity_assay": "yes"
+      }
+    },
+    {
+      "name": "ตัวอย่างสมมติ high pretest แม้ D-dimer ต่ำ",
+      "data": {
+        "age": 50,
+        "pregnant": "no",
+        "unstable": "no",
+        "suspected_site": "pe",
+        "pretest_probability": "high",
+        "symptoms_current": "yes",
+        "ddimer_value": 200,
+        "ddimer_cutoff": 500,
+        "ddimer_unit": "ng_ml",
+        "cutoff_unit": "ng_ml",
+        "ddimer_basis": "feu",
+        "cutoff_basis": "feu",
+        "cutoff_validated": "yes"
+      }
+    }
+  ]
+}

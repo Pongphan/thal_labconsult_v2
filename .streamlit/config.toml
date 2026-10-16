@@ -1,0 +1,98 @@
+[server]
+headless = true
+address = "127.0.0.1"
+maxUploadSize = 2
+
+[browser]
+gatherUsageStats = false
+
+[client]
+showSidebarNavigation = false
+toolbarMode = "viewer"
+
+# Native tokens apply to forms, menus, charts, tables and callouts consistently.
+# A system-font stack keeps Thai text available without a font-service request.
+# Keep chart palettes in the Plotly helpers and inherit dataframe header text.
+# Their variant-specific config keys are not supported by every installation.
+[theme]
+base = "light"
+font = "'Leelawadee UI', 'Noto Sans Thai', 'Tahoma', sans-serif"
+headingFont = "'Leelawadee UI', 'Noto Sans Thai', 'Tahoma', sans-serif"
+# Two size steps: 16 -> 18 -> 20 px; rem-based headings scale with this value.
+baseFontSize = 20
+baseFontWeight = 400
+headingFontSizes = ["2.3rem", "1.45rem", "1.18rem", "1.05rem", "1rem", "1rem"]
+headingFontWeights = [700, 650, 600, 600, 600, 600]
+baseRadius = "14px"
+buttonRadius = "12px"
+showWidgetBorder = true
+showSidebarBorder = false
+linkUnderline = true
+
+[theme.light]
+primaryColor = "#9D4566"
+backgroundColor = "#FAF8F7"
+secondaryBackgroundColor = "#FFFDFE"
+textColor = "#120D18"
+borderColor = "#88718D"
+linkColor = "#8F3B5E"
+codeBackgroundColor = "#F4EDF6"
+codeTextColor = "#674570"
+dataframeBorderColor = "#88718D"
+dataframeHeaderBackgroundColor = "#F4EAF2"
+redColor = "#AD4563"
+redBackgroundColor = "#FCE8EE"
+redTextColor = "#882C49"
+orangeColor = "#996329"
+orangeBackgroundColor = "#FFF0DE"
+orangeTextColor = "#80501F"
+yellowColor = "#827022"
+yellowBackgroundColor = "#F8F3D9"
+yellowTextColor = "#6E5C1D"
+greenColor = "#39785B"
+greenBackgroundColor = "#E5F4ED"
+greenTextColor = "#2D654C"
+blueColor = "#397399"
+blueBackgroundColor = "#E7F2FC"
+blueTextColor = "#2F648B"
+violetColor = "#7257AD"
+violetBackgroundColor = "#EEEAFE"
+violetTextColor = "#61459B"
+grayColor = "#65718A"
+grayBackgroundColor = "#E8EDF5"
+grayTextColor = "#4F5C75"
+
+[theme.dark]
+# Outlined main actions keep labels readable; the accent also serves native tabs.
+primaryColor = "#C8B4F2"
+backgroundColor = "#1A2130"
+secondaryBackgroundColor = "#293247"
+textColor = "#F6F8FF"
+borderColor = "#9EACC5"
+linkColor = "#A7DFF4"
+codeBackgroundColor = "#35344A"
+codeTextColor = "#E1D1F4"
+dataframeBorderColor = "#9EACC5"
+dataframeHeaderBackgroundColor = "#37445D"
+redColor = "#F4ACCF"
+redBackgroundColor = "#55314A"
+redTextColor = "#F7C7DD"
+orangeColor = "#F4CCA4"
+orangeBackgroundColor = "#544032"
+orangeTextColor = "#F8DBBE"
+yellowColor = "#F4E5A5"
+yellowBackgroundColor = "#4A4631"
+yellowTextColor = "#F8EDBE"
+greenColor = "#97E4CC"
+greenBackgroundColor = "#294C48"
+greenTextColor = "#BDEDDC"
+blueColor = "#98DEFA"
+blueBackgroundColor = "#294C64"
+blueTextColor = "#BFEAF9"
+violetColor = "#D1BEFA"
+violetBackgroundColor = "#433769"
+violetTextColor = "#E3D6FA"
+grayColor = "#CDD5E5"
+grayBackgroundColor = "#394357"
+grayTextColor = "#E2E8F3"
+

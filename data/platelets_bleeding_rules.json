@@ -1,0 +1,428 @@
+{
+  "metadata": {
+    "module_id": "platelets_bleeding",
+    "title": "เกล็ดเลือดและภาวะเลือดออก",
+    "version": "hemostasis-draft-2026.10.07",
+    "status": "draft_requires_local_validation",
+    "scope": "ทบทวนจำนวนเกล็ดเลือดและ PT/aPTT เทียบเกณฑ์ของห้องปฏิบัติการ โดยตรวจอาการ คุณภาพตัวอย่าง และปัจจัยรบกวนก่อน ไม่ยืนยันโรคหรือกำหนดการรักษา",
+    "disclaimer": "เครื่องมือนี้ช่วยทบทวนผล ไม่วินิจฉัยสาเหตุเลือดออก DIC หรือโรคเกล็ดเลือด และไม่สั่งให้เลือดหรือปรับยา ต้องให้ผู้ประกอบวิชาชีพทบทวน",
+    "sources": [
+      {
+        "title": "ARUP: Prolonged Clotting Time Evaluation",
+        "url": "https://arupconsult.com/content/prolonged-clotting-time-evaluation",
+        "use": "Patterns guide further testing; drugs, specimen quality and replacement therapy confound results."
+      },
+      {
+        "title": "ARUP: Functional Platelet Disorders",
+        "url": "https://arupconsult.com/content/functional-platelet-disorders",
+        "use": "Smear/clump review, acquired causes, and contextual VWD/platelet investigation."
+      },
+      {
+        "title": "ICSH 2024 mixing-test recommendations",
+        "url": "https://doi.org/10.1111/ijlh.14344",
+        "use": "Confirm prolonged result on suitable specimen before local mixing-study protocol."
+      }
+    ]
+  },
+  "fields": [
+    {
+      "key": "bleeding_severity",
+      "label": "อาการเลือดออกที่ผู้ประเมินระบุ",
+      "type": "select",
+      "section": "อาการและบริบท",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ยังไม่ทราบ"
+        },
+        {
+          "value": "none",
+          "label": "ไม่มีอาการเลือดออกที่รายงาน"
+        },
+        {
+          "value": "minor",
+          "label": "เล็กน้อย / ผิวหนังหรือเยื่อบุ"
+        },
+        {
+          "value": "major",
+          "label": "รุนแรง / ไม่หยุด / ตำแหน่งสำคัญ"
+        }
+      ]
+    },
+    {
+      "key": "hemodynamic_instability",
+      "label": "มีอาการไม่คงที่ทางระบบไหลเวียน",
+      "type": "select",
+      "section": "อาการและบริบท",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่"
+        }
+      ]
+    },
+    {
+      "key": "bleeding_pattern",
+      "label": "รูปแบบอาการ",
+      "type": "select",
+      "section": "อาการและบริบท",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ระบุ"
+        },
+        {
+          "value": "mucocutaneous",
+          "label": "ผิวหนังหรือเยื่อบุ"
+        },
+        {
+          "value": "deep",
+          "label": "กล้ามเนื้อ / ข้อ"
+        },
+        {
+          "value": "other",
+          "label": "อื่น ๆ"
+        }
+      ]
+    },
+    {
+      "key": "anticoagulant",
+      "label": "ยาต้านการแข็งตัวของเลือด",
+      "type": "select",
+      "section": "ปัจจัยรบกวน",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ"
+        },
+        {
+          "value": "none",
+          "label": "ยืนยันว่าไม่มี"
+        },
+        {
+          "value": "warfarin",
+          "label": "Warfarin"
+        },
+        {
+          "value": "heparin",
+          "label": "Heparin"
+        },
+        {
+          "value": "doac",
+          "label": "DOAC"
+        },
+        {
+          "value": "other",
+          "label": "ชนิดอื่น"
+        }
+      ]
+    },
+    {
+      "key": "antiplatelet_use",
+      "label": "ใช้ยาต้านเกล็ดเลือดหรือ NSAIDs",
+      "type": "select",
+      "section": "ปัจจัยรบกวน",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่"
+        }
+      ]
+    },
+    {
+      "key": "recent_factor_or_transfusion",
+      "label": "เพิ่งได้รับ factor replacement หรือส่วนประกอบเลือด",
+      "type": "select",
+      "section": "ปัจจัยรบกวน",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่"
+        }
+      ]
+    },
+    {
+      "key": "cbc_sample_quality",
+      "label": "คุณภาพตัวอย่าง CBC",
+      "type": "select",
+      "section": "จำนวนเกล็ดเลือด",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ยังไม่ยืนยัน"
+        },
+        {
+          "value": "acceptable",
+          "label": "ผ่านการทบทวนว่าเหมาะสม"
+        },
+        {
+          "value": "clotted",
+          "label": "พบลิ่มเลือด / ใช้ไม่ได้"
+        }
+      ]
+    },
+    {
+      "key": "platelet_clumps",
+      "label": "พบ platelet clumps ใน smear",
+      "type": "select",
+      "section": "จำนวนเกล็ดเลือด",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ไม่ระบุ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่"
+        }
+      ]
+    },
+    {
+      "key": "platelets_10e9_l",
+      "label": "เกล็ดเลือด",
+      "type": "number",
+      "section": "จำนวนเกล็ดเลือด",
+      "unit": "10⁹/L",
+      "min": 0,
+      "max": 5000
+    },
+    {
+      "key": "platelet_ref_low",
+      "label": "ขอบเขตล่างเกล็ดเลือดของห้องปฏิบัติการ",
+      "type": "number",
+      "section": "จำนวนเกล็ดเลือด",
+      "unit": "10⁹/L",
+      "min": 0,
+      "max": 5000
+    },
+    {
+      "key": "platelet_ref_high",
+      "label": "ขอบเขตบนเกล็ดเลือดของห้องปฏิบัติการ",
+      "type": "number",
+      "section": "จำนวนเกล็ดเลือด",
+      "unit": "10⁹/L",
+      "min": 0,
+      "max": 5000
+    },
+    {
+      "key": "platelet_critical_low",
+      "label": "เกณฑ์แจ้งเตือนต่ำของห้องปฏิบัติการ (ถ้ามี)",
+      "type": "number",
+      "section": "จำนวนเกล็ดเลือด",
+      "unit": "10⁹/L",
+      "min": 0.001,
+      "max": 5000
+    },
+    {
+      "key": "coag_sample_quality",
+      "label": "คุณภาพตัวอย่าง coagulation",
+      "type": "select",
+      "section": "PT / aPTT",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ยังไม่ยืนยัน"
+        },
+        {
+          "value": "acceptable",
+          "label": "ผ่านการทบทวนว่าเหมาะสม"
+        },
+        {
+          "value": "underfilled",
+          "label": "หลอด citrate เติมไม่พอ"
+        },
+        {
+          "value": "clotted",
+          "label": "พบลิ่มเลือด"
+        },
+        {
+          "value": "contamination",
+          "label": "สงสัยปนเปื้อน heparin / อื่น ๆ"
+        }
+      ]
+    },
+    {
+      "key": "pt_seconds",
+      "label": "PT",
+      "type": "number",
+      "section": "PT / aPTT",
+      "unit": "วินาที",
+      "min": 0.1,
+      "max": 300
+    },
+    {
+      "key": "pt_uln_seconds",
+      "label": "ขอบเขตบน PT ของวิธีตรวจ",
+      "type": "number",
+      "section": "PT / aPTT",
+      "unit": "วินาที",
+      "min": 0.1,
+      "max": 100
+    },
+    {
+      "key": "aptt_seconds",
+      "label": "aPTT",
+      "type": "number",
+      "section": "PT / aPTT",
+      "unit": "วินาที",
+      "min": 0.1,
+      "max": 400
+    },
+    {
+      "key": "aptt_uln_seconds",
+      "label": "ขอบเขตบน aPTT ของวิธีตรวจ",
+      "type": "number",
+      "section": "PT / aPTT",
+      "unit": "วินาที",
+      "min": 0.1,
+      "max": 200
+    },
+    {
+      "key": "fibrinogen_g_l",
+      "label": "Fibrinogen",
+      "type": "number",
+      "section": "ผลประกอบ",
+      "unit": "g/L",
+      "min": 0,
+      "max": 20
+    },
+    {
+      "key": "fibrinogen_ref_low",
+      "label": "ขอบเขตล่าง fibrinogen ของวิธีตรวจ",
+      "type": "number",
+      "section": "ผลประกอบ",
+      "unit": "g/L",
+      "min": 0,
+      "max": 20
+    },
+    {
+      "key": "ddimer_lab_call",
+      "label": "D-dimer ตามการแปลผลของห้องปฏิบัติการ",
+      "type": "select",
+      "section": "ผลประกอบ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่มีผล / ไม่ทราบ"
+        },
+        {
+          "value": "increased",
+          "label": "สูงกว่าเกณฑ์ของวิธีตรวจ"
+        },
+        {
+          "value": "not_increased",
+          "label": "ไม่สูงกว่าเกณฑ์ของวิธีตรวจ"
+        },
+        {
+          "value": "uninterpretable",
+          "label": "แปลผลไม่ได้"
+        }
+      ]
+    }
+  ],
+  "thresholds": {
+    "prolonged_ratio": 1
+  },
+  "messages": {
+    "major_bleed": "มีรายงานเลือดออกรุนแรงหรือระบบไหลเวียนไม่คงที่ ควรประเมินเร่งด่วนตามระบบฉุกเฉินของหน่วยงาน ไม่รอการจัดรูปแบบผลตรวจ",
+    "invalid_ranges": "ขอบเขตล่างเกล็ดเลือดต้องน้อยกว่าขอบเขตบน กรุณาตรวจช่วงอ้างอิง",
+    "plt_artifact": "ยังยืนยันจำนวนเกล็ดเลือดไม่ได้: คุณภาพตัวอย่างหรือ platelet clumps ยังไม่ผ่านการทบทวน ห้ามสรุปว่าเป็น thrombocytopenia จริงจากตัวเลขนี้",
+    "plt_repeat": "ทบทวน smear และเก็บ/ตรวจซ้ำด้วยวิธีจัดการ clumping ที่ SOP รองรับ; ไม่คำนวณแก้ dilution เองโดยไม่มีข้อมูลวิธีตรวจ",
+    "plt_critical": "เกล็ดเลือดที่รายงาน {value:g} ×10⁹/L ต่ำกว่าเกณฑ์แจ้งเตือนของห้องปฏิบัติการ {threshold:g}; ต้องตรวจสอบความถูกต้องและแจ้งผู้รับผิดชอบโดยเร็ว แม้สงสัย artifact",
+    "plt_low": "เกล็ดเลือด {value:g} ×10⁹/L ต่ำกว่าขอบเขตล่างที่ระบุ ({threshold:g}) ยังไม่บอกสาเหตุ",
+    "plt_high": "เกล็ดเลือด {value:g} ×10⁹/L สูงกว่าขอบเขตบนที่ระบุ ({threshold:g}) ยังไม่บอกสาเหตุ",
+    "plt_within": "จำนวนเกล็ดเลือดไม่ออกนอกขอบเขตที่ระบุ; ด้านที่ไม่ได้ให้เกณฑ์ยังไม่ได้ประเมิน และจำนวนไม่บอกการทำงาน",
+    "plt_refs": "มีจำนวนเกล็ดเลือด แต่ไม่มีขอบเขตอ้างอิงสำหรับเปรียบเทียบ",
+    "plt_review": "ตรวจ CBC/smear เดิม แนวโน้ม และประวัติยา/ภาวะร่วมก่อนสรุปสาเหตุของจำนวนเกล็ดเลือด",
+    "coag_quality": "ยังไม่จัดรูปแบบ PT/aPTT/fibrinogen เพราะคุณภาพตัวอย่าง coagulation ยังไม่ผ่านการยืนยัน",
+    "coag_repeat": "ตรวจชนิดหลอด ปริมาตร citrate การเก็บ/ขนส่ง การปนเปื้อน และพิจารณาเก็บใหม่ตาม SOP",
+    "ratio": "{label} / ขอบเขตบนของวิธีตรวจ = {ratio:g}; อัตราส่วนนี้ไม่ใช่ INR หรือ therapeutic target",
+    "missing_pt": "PT ยังขาดผลหรือขอบเขตบน จึงยังแยกว่า aPTT ยาวแบบ isolated ไม่ได้",
+    "missing_aptt": "aPTT ยังขาดผลหรือขอบเขตบน จึงยังแยกว่า PT ยาวแบบ isolated ไม่ได้",
+    "isolated_pt": "PT ยาวกว่า ULN ที่ระบุ โดย aPTT ไม่ยาวกว่า ULN: รูปแบบ isolated PT prolongation ต้องตรวจหาสาเหตุตามบริบท",
+    "isolated_aptt": "aPTT ยาวกว่า ULN ที่ระบุ โดย PT ไม่ยาวกว่า ULN: รูปแบบ isolated aPTT prolongation ต้องตรวจหาสาเหตุตามบริบท",
+    "both_prolonged": "PT และ aPTT ยาวกว่า ULN ที่ระบุทั้งคู่ ยังแยกผลจากยา โรคตับ การขาด/ยับยั้งปัจจัย หรือการใช้ปัจจัยการแข็งตัวมากผิดปกติไม่ได้",
+    "neither_prolonged": "PT และ aPTT ไม่ยาวกว่า ULN ที่ระบุ แต่ไม่สามารถตัด bleeding disorder ได้",
+    "confounder": "ยาต้านการแข็งตัว ประวัติรับ factor/เลือด หรือข้อมูลที่ยังไม่ทราบอาจรบกวนผล ต้องทบทวนก่อนสรุป factor deficiency หรือ inhibitor",
+    "mixing": "เมื่อยืนยันผลยาวซ้ำและทบทวนปัจจัยรบกวนแล้ว พิจารณา mixing study ตาม SOP ของวิธีตรวจ ก่อนเลือก factor/inhibitor assays ให้สอดคล้องกับรูปแบบและอาการ",
+    "drug_review": "ทบทวนชนิดยา เวลาที่ได้รับยา และ factor/เลือดร่วมกับห้องปฏิบัติการก่อนเลือกการตรวจเพิ่มเติม ไม่หยุดหรือปรับยาเอง",
+    "bleeding_normal_tests": "มีประวัติเลือดออกแม้ PT/aPTT ไม่ยาวกว่าเกณฑ์ ต้องทบทวนประวัติเลือดออกและยาที่ใช้; พิจารณา VWF antigen/activity และ FVIII ตามข้อบ่งชี้ ก่อนการตรวจ platelet function เฉพาะทาง",
+    "mucosal": "อาการผิวหนัง/เยื่อบุอาจต้องประเมิน VWF และการทำงานของเกล็ดเลือดร่วมกับจำนวนและยา ไม่ยืนยันโรคจากรูปแบบอาการ",
+    "fibrinogen_low": "Fibrinogen {value:g} g/L ต่ำกว่าขอบเขตล่างที่ระบุ ({threshold:g}); ต้องยืนยันวิธีตรวจและบริบท",
+    "fibrinogen_missing": "มี fibrinogen แต่ไม่มีขอบเขตล่างของวิธีตรวจ จึงไม่จัดว่าต่ำให้อัตโนมัติ",
+    "combined_abnormal": "มีเกล็ดเลือดต่ำ PT/aPTT ยาว และ fibrinogen ต่ำร่วมกับ D-dimer สูงตามรายงาน ต้องทบทวนภาวะร่วมโดยผู้เชี่ยวชาญ; ข้อมูลนี้ไม่ยืนยัน DIC",
+    "ddimer": "บันทึก D-dimer ตามรายงานต้นทางเท่านั้น ไม่ใช้ค่านี้วินิจฉัย DIC หรือ VTE และไม่แปลง FEU/DDU",
+    "missing": "เติมผลตรวจ ช่วงอ้างอิง และสถานะคุณภาพตัวอย่างที่ต้องการทบทวน; ค่าที่ไม่มีข้อมูลไม่ถือว่าปกติ",
+    "invalid": "แก้ข้อมูลที่ไม่ผ่านการตรวจสอบก่อนใช้รูปแบบผลตรวจ; ข้อแจ้งเตือนจากอาการหรือค่าที่เชื่อถือได้ยังต้องได้รับการทบทวน"
+  },
+  "limitations": [
+    "หากไม่ระบุเกณฑ์แจ้งเตือนของหน่วยงาน ระบบไม่สร้างธงเร่งด่วนจากจำนวนเกล็ดเลือดเพียงอย่างเดียว การไม่มีธงไม่ยืนยันความปลอดภัย",
+    "PT/aPTT ที่ไม่ยาวและจำนวนเกล็ดเลือดที่ไม่ต่ำไม่ตัดภาวะเลือดออก",
+    "ช่วงอ้างอิงและเกณฑ์แจ้งเตือนมาจากผู้ใช้ ต้องตรงกับอายุ วิธีตรวจ หน่วย และ SOP",
+    "ไม่คำนวณ DIC score, bleeding score หรือสรุปผล mixing study โดยไม่มีข้อมูลครบ",
+    "ขอบเขตกรอกตัวเลขเป็นตัวกรองข้อผิดพลาด ไม่ใช่ช่วงอ้างอิงปกติ"
+  ],
+  "counseling": [
+    "อธิบายผลที่ยังไม่ชัดเจนและแผนตรวจยืนยัน ไม่ปรับยาเอง; เมื่อเลือดออกรุนแรงควรรับการประเมินเร่งด่วน"
+  ],
+  "examples": [
+    {
+      "name": "ตัวอย่างสมมติ aPTT ยาว",
+      "data": {
+        "bleeding_severity": "minor",
+        "bleeding_pattern": "mucocutaneous",
+        "hemodynamic_instability": "no",
+        "anticoagulant": "none",
+        "recent_factor_or_transfusion": "no",
+        "cbc_sample_quality": "acceptable",
+        "platelet_clumps": "no",
+        "platelets_10e9_l": 225,
+        "platelet_ref_low": 150,
+        "platelet_ref_high": 450,
+        "coag_sample_quality": "acceptable",
+        "pt_seconds": 12,
+        "pt_uln_seconds": 14,
+        "aptt_seconds": 56,
+        "aptt_uln_seconds": 35
+      }
+    },
+    {
+      "name": "ตัวอย่างสมมติ platelet clumping",
+      "data": {
+        "platelets_10e9_l": 18,
+        "platelet_ref_low": 150,
+        "platelet_critical_low": 20,
+        "platelet_clumps": "yes",
+        "cbc_sample_quality": "acceptable"
+      }
+    }
+  ]
+}

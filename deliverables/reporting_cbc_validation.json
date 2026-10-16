@@ -1,0 +1,608 @@
+{
+  "schema_version": 1,
+  "artifact_type": "synthetic_report_validation_snapshot",
+  "document_status": "DRAFT",
+  "data_origin": "synthetic",
+  "release_eligible": false,
+  "paper": "A4",
+  "reference_intervals": null,
+  "template": {
+    "panel": "cbc",
+    "language": "bilingual",
+    "institution": "ห้องปฏิบัติการสมมติ / Synthetic laboratory",
+    "version": "0.1",
+    "margin_mm": 15,
+    "show_previous": true,
+    "show_morphology": false,
+    "show_comments": true,
+    "show_trend": false
+  },
+  "patient_specimen": {
+    "patient_id": "SYNTHETIC-PATIENT-001",
+    "patient_name": "บุคคลสมมติ / Synthetic person",
+    "date_of_birth": "1981-01-01 (synthetic)",
+    "sex": "Female (synthetic)",
+    "requesting_physician": "แพทย์สมมติ / Synthetic requesting physician",
+    "ward": "แผนกสมมติ / Synthetic ward",
+    "specimen_id": "SYNTHETIC-SPECIMEN-001",
+    "specimen": "Synthetic demonstration specimen",
+    "collected_at": "2026-01-02T08:30:00+07:00 (synthetic)",
+    "received_at": "2026-01-02T09:00:00+07:00 (synthetic)",
+    "analyzed_at": "2026-01-02T09:15:00+07:00 (synthetic)",
+    "reported_at": "NOT RELEASED / ยังไม่อนุมัติผล"
+  },
+  "rows": [
+    {
+      "code": "hb_g_dl",
+      "result": 7.2,
+      "unit": "g/dL",
+      "previous_result": 12.8,
+      "previous_days": 7.0
+    },
+    {
+      "code": "hct_percent",
+      "result": 30.5,
+      "unit": "%",
+      "previous_result": null,
+      "previous_days": null
+    },
+    {
+      "code": "rbc_10e12_l",
+      "result": 3.1,
+      "unit": "10*12/L",
+      "previous_result": null,
+      "previous_days": null
+    },
+    {
+      "code": "mcv_fl",
+      "result": 98.0,
+      "unit": "fL",
+      "previous_result": null,
+      "previous_days": null
+    },
+    {
+      "code": "mch_pg",
+      "result": 23.2,
+      "unit": "pg",
+      "previous_result": null,
+      "previous_days": null
+    },
+    {
+      "code": "mchc_g_dl",
+      "result": 23.6,
+      "unit": "g/dL",
+      "previous_result": null,
+      "previous_days": null
+    },
+    {
+      "code": "rdw_percent",
+      "result": 15.1,
+      "unit": "%",
+      "previous_result": null,
+      "previous_days": null
+    },
+    {
+      "code": "wbc_10e9_l",
+      "result": 8.0,
+      "unit": "10*9/L",
+      "previous_result": null,
+      "previous_days": null
+    },
+    {
+      "code": "platelets_10e9_l",
+      "result": 220.0,
+      "unit": "10*9/L",
+      "previous_result": null,
+      "previous_days": null
+    }
+  ],
+  "catalog": {
+    "hb_g_dl": {
+      "name_th": "ฮีโมโกลบิน",
+      "name_en": "Hemoglobin",
+      "unit": "g/dL"
+    },
+    "hct_percent": {
+      "name_th": "ฮีมาโตคริต",
+      "name_en": "Hematocrit",
+      "unit": "%"
+    },
+    "rbc_10e12_l": {
+      "name_th": "จำนวนเม็ดเลือดแดง",
+      "name_en": "RBC count",
+      "unit": "10*12/L"
+    },
+    "mcv_fl": {
+      "name_th": "ปริมาตรเม็ดเลือดแดงเฉลี่ย",
+      "name_en": "MCV",
+      "unit": "fL"
+    },
+    "mch_pg": {
+      "name_th": "ฮีโมโกลบินเฉลี่ยต่อเม็ดเลือดแดง",
+      "name_en": "MCH",
+      "unit": "pg"
+    },
+    "mchc_g_dl": {
+      "name_th": "ความเข้มข้นฮีโมโกลบินในเม็ดเลือดแดง",
+      "name_en": "MCHC",
+      "unit": "g/dL"
+    },
+    "rdw_percent": {
+      "name_th": "การกระจายขนาดเม็ดเลือดแดง",
+      "name_en": "RDW-CV",
+      "unit": "%"
+    },
+    "wbc_10e9_l": {
+      "name_th": "จำนวนเม็ดเลือดขาว",
+      "name_en": "WBC count",
+      "unit": "10*9/L"
+    },
+    "platelets_10e9_l": {
+      "name_th": "จำนวนเกล็ดเลือด",
+      "name_en": "Platelet count",
+      "unit": "10*9/L"
+    },
+    "neutrophils_percent": {
+      "name_th": "นิวโทรฟิล",
+      "name_en": "Neutrophils",
+      "unit": "%"
+    },
+    "lymphocytes_percent": {
+      "name_th": "ลิมโฟไซต์",
+      "name_en": "Lymphocytes",
+      "unit": "%"
+    },
+    "monocytes_percent": {
+      "name_th": "โมโนไซต์",
+      "name_en": "Monocytes",
+      "unit": "%"
+    },
+    "eosinophils_percent": {
+      "name_th": "อีโอซิโนฟิล",
+      "name_en": "Eosinophils",
+      "unit": "%"
+    },
+    "basophils_percent": {
+      "name_th": "เบโซฟิล",
+      "name_en": "Basophils",
+      "unit": "%"
+    },
+    "anc_10e9_l": {
+      "name_th": "นิวโทรฟิลสัมบูรณ์",
+      "name_en": "Absolute neutrophils",
+      "unit": "10*9/L"
+    },
+    "alc_10e9_l": {
+      "name_th": "ลิมโฟไซต์สัมบูรณ์",
+      "name_en": "Absolute lymphocytes",
+      "unit": "10*9/L"
+    },
+    "amc_10e9_l": {
+      "name_th": "โมโนไซต์สัมบูรณ์",
+      "name_en": "Absolute monocytes",
+      "unit": "10*9/L"
+    },
+    "aec_10e9_l": {
+      "name_th": "อีโอซิโนฟิลสัมบูรณ์",
+      "name_en": "Absolute eosinophils",
+      "unit": "10*9/L"
+    },
+    "abc_10e9_l": {
+      "name_th": "เบโซฟิลสัมบูรณ์",
+      "name_en": "Absolute basophils",
+      "unit": "10*9/L"
+    },
+    "retic_percent": {
+      "name_th": "เรติคูโลไซต์",
+      "name_en": "Reticulocytes",
+      "unit": "%"
+    },
+    "retic_abs_10e9_l": {
+      "name_th": "เรติคูโลไซต์สัมบูรณ์",
+      "name_en": "Absolute reticulocytes",
+      "unit": "10*9/L"
+    },
+    "pt_seconds": {
+      "name_th": "โปรทรอมบินไทม์",
+      "name_en": "Prothrombin time",
+      "unit": "s"
+    },
+    "inr": {
+      "name_th": "อัตราส่วนมาตรฐานสากล",
+      "name_en": "INR",
+      "unit": "1"
+    },
+    "aptt_seconds": {
+      "name_th": "เอพีทีที",
+      "name_en": "Activated partial thromboplastin time",
+      "unit": "s"
+    },
+    "fibrinogen_g_l": {
+      "name_th": "ไฟบริโนเจน",
+      "name_en": "Fibrinogen",
+      "unit": "g/L"
+    },
+    "hba_percent": {
+      "name_th": "ฮีโมโกลบินเอ",
+      "name_en": "Hb A",
+      "unit": "%"
+    },
+    "hba2_percent": {
+      "name_th": "ฮีโมโกลบินเอทู",
+      "name_en": "Hb A2",
+      "unit": "%"
+    },
+    "hbf_percent": {
+      "name_th": "ฮีโมโกลบินเอฟ",
+      "name_en": "Hb F",
+      "unit": "%"
+    },
+    "hbe_percent": {
+      "name_th": "ฮีโมโกลบินอี",
+      "name_en": "Hb E",
+      "unit": "%"
+    },
+    "ferritin_ng_ml": {
+      "name_th": "เฟอร์ริติน",
+      "name_en": "Ferritin",
+      "unit": "ng/mL"
+    }
+  },
+  "validation": {
+    "panel": "cbc",
+    "decision": "HOLD",
+    "release_eligible": false,
+    "findings": [
+      {
+        "rule_id": "POLICY_NOT_APPROVED",
+        "status": "HOLD",
+        "message": "ต้นแบบข้อมูลสังเคราะห์: ยังไม่มีนโยบายที่อนุมัติ จึงห้ามปล่อยผลอัตโนมัติ",
+        "evidence": {}
+      },
+      {
+        "rule_id": "CLINICAL_POLICY",
+        "status": "NOT_EVALUATED",
+        "message": "ไม่ได้ประเมินช่วงอ้างอิง ค่าวิกฤต หรือกฎเฉพาะเครื่องมือ ต้องใช้ SOP ที่ตรวจสอบและอนุมัติของห้องปฏิบัติการ",
+        "evidence": {}
+      },
+      {
+        "rule_id": "REQUIRED_TESTS",
+        "status": "PASS",
+        "message": "มีค่าผลตรวจที่จำเป็นครบตามแผงข้อมูลสังเคราะห์",
+        "evidence": {}
+      },
+      {
+        "rule_id": "TECHNICAL_INPUT",
+        "status": "PASS",
+        "message": "โครงสร้างและหน่วยของข้อมูลที่ให้มาผ่านการตรวจทางเทคนิค ไม่ใช่การรับรองผลทางคลินิก",
+        "evidence": {}
+      },
+      {
+        "rule_id": "INDEX_MCV_FL",
+        "status": "NOT_EVALUATED",
+        "message": "ข้อมูลหรือค่าความคลาดเคลื่อนที่กำหนดยังไม่ครบ",
+        "evidence": {
+          "observed": 98.0,
+          "calculated": 98.38709677419354,
+          "tolerance": null,
+          "numerator": "hct_percent",
+          "denominator": "rbc_10e12_l"
+        }
+      },
+      {
+        "rule_id": "INDEX_MCH_PG",
+        "status": "NOT_EVALUATED",
+        "message": "ข้อมูลหรือค่าความคลาดเคลื่อนที่กำหนดยังไม่ครบ",
+        "evidence": {
+          "observed": 23.2,
+          "calculated": 23.225806451612904,
+          "tolerance": null,
+          "numerator": "hb_g_dl",
+          "denominator": "rbc_10e12_l"
+        }
+      },
+      {
+        "rule_id": "INDEX_MCHC_G_DL",
+        "status": "NOT_EVALUATED",
+        "message": "ข้อมูลหรือค่าความคลาดเคลื่อนที่กำหนดยังไม่ครบ",
+        "evidence": {
+          "observed": 23.6,
+          "calculated": 23.60655737704918,
+          "tolerance": null,
+          "numerator": "hb_g_dl",
+          "denominator": "hct_percent"
+        }
+      },
+      {
+        "rule_id": "DELTA_HB",
+        "status": "NOT_EVALUATED",
+        "message": "ต้องมีผลเดิมที่ยืนยันว่าเปรียบเทียบได้ กรอบเวลา และเกณฑ์ delta ที่กำหนด",
+        "evidence": {
+          "comparable": false,
+          "previous_result": 12.8,
+          "previous_days": 7.0,
+          "max_days": null
+        }
+      },
+      {
+        "rule_id": "RULE_OF_THREE",
+        "status": "NOT_EVALUATED",
+        "message": "ยังไม่ยืนยันบริบทที่เหมาะสมของ rule of three; ไม่ใช้เป็นกฎสากลหรือการวินิจฉัย",
+        "evidence": {}
+      }
+    ],
+    "derived": {
+      "mcv_fl": 98.38709677419354,
+      "mch_pg": 23.225806451612904,
+      "mchc_g_dl": 23.60655737704918,
+      "delta_hb_g_dl": -5.6000000000000005,
+      "previous_days": 7.0,
+      "delta_hb_percent": -43.75,
+      "rule_three_hct_percent": 21.6,
+      "rule_three_difference_percent": 8.899999999999999
+    },
+    "raw_rows": [
+      {
+        "code": "hb_g_dl",
+        "result": 7.2,
+        "unit": "g/dL",
+        "previous_result": 12.8,
+        "previous_days": 7.0
+      },
+      {
+        "code": "hct_percent",
+        "result": 30.5,
+        "unit": "%",
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "rbc_10e12_l",
+        "result": 3.1,
+        "unit": "10*12/L",
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "mcv_fl",
+        "result": 98.0,
+        "unit": "fL",
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "mch_pg",
+        "result": 23.2,
+        "unit": "pg",
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "mchc_g_dl",
+        "result": 23.6,
+        "unit": "g/dL",
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "rdw_percent",
+        "result": 15.1,
+        "unit": "%",
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "wbc_10e9_l",
+        "result": 8.0,
+        "unit": "10*9/L",
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "platelets_10e9_l",
+        "result": 220.0,
+        "unit": "10*9/L",
+        "previous_result": null,
+        "previous_days": null
+      }
+    ],
+    "normalized_rows": [
+      {
+        "code": "hb_g_dl",
+        "unit": "g/dL",
+        "result": 7.2,
+        "previous_result": 12.8,
+        "previous_days": 7.0
+      },
+      {
+        "code": "hct_percent",
+        "unit": "%",
+        "result": 30.5,
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "rbc_10e12_l",
+        "unit": "10*12/L",
+        "result": 3.1,
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "mcv_fl",
+        "unit": "fL",
+        "result": 98.0,
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "mch_pg",
+        "unit": "pg",
+        "result": 23.2,
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "mchc_g_dl",
+        "unit": "g/dL",
+        "result": 23.6,
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "rdw_percent",
+        "unit": "%",
+        "result": 15.1,
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "wbc_10e9_l",
+        "unit": "10*9/L",
+        "result": 8.0,
+        "previous_result": null,
+        "previous_days": null
+      },
+      {
+        "code": "platelets_10e9_l",
+        "unit": "10*9/L",
+        "result": 220.0,
+        "previous_result": null,
+        "previous_days": null
+      }
+    ],
+    "validation_context": {
+      "specimen_flags": [],
+      "tolerances": {},
+      "previous_comparable": false
+    },
+    "build_provenance": {
+      "schema_version": 1,
+      "application": "thal_labconsult",
+      "source_sha256": "bb29ab6e4040555c2c12762402c25f4c6ca8f91d669deebab21bea2a4cd8c401",
+      "source_files": {
+        "app.py": "dfd3fae8bc60f1d1a2d8b58ecafaabe802f35bfaa23e401b439da05f4e46a5cf",
+        "logic/__init__.py": "14c7dedc6d677774e215b393a3f6bf6074b9308193b3f655250a10f82312cc23",
+        "logic/cbc.py": "efc4cc83851874c957aa3cf91728fa6d778e25912b180fb05bba8f393b68a66e",
+        "logic/clinical_grouping.py": "c4a1028fc64407fc9c71d079cd7304dddea5772abf393188873d7b8172e2a7f9",
+        "logic/engine.py": "d4eebaa7b10d24381bde2dae9877da83a70f757d93196bcb01f75ec1977c08d4",
+        "logic/examples.py": "e5f33383a7c935359d384934018690b0ccdc2827c42b3a3a6f33880be69d9f9c",
+        "logic/hematology.py": "c7706c53f0ecb0f66cb72f1862a2bc18a5adedb4fa0ea97e21d5d1c9f50490b4",
+        "logic/hematology_common.py": "4c91577c11f40708ec4e5062b3f272719317482c5fa52946b48e6a44fc882290",
+        "logic/marrow_malignancies.py": "acb941b59b6adde3537678a73b12b72e5366c75f8525a69c20f9552d3fe4e561",
+        "logic/morphology_quality.py": "31d6042604aef374618297b822d12a87c91aa4fa32eb2753faaef32ad7383849",
+        "logic/platelets_bleeding.py": "b9cb537168cda5569b96424d02439885c349d66aa6114a037921e0d92fc41581",
+        "logic/reporting.py": "5c238ab166c45614ed9c2cfed407574fc6b62f3e4ccea1a66ebc7534bfa66b81",
+        "logic/rules.py": "c17a5ea74d25e42a5909829303c4fedb3f84685bfd86c3b426f92dfe90baea83",
+        "logic/thrombosis.py": "f6afd5dc2d3a98f4dd6cc6fd3a35f61203db129dfa6919385463cd3c7505ff99",
+        "logic/transfusion.py": "d245ef76c7ad44704b39d1f56a2e81d8c66579e5a3adbd549b4eba198808107f",
+        "logic/units.py": "163411881b0ba89985c3a24b64628547273dd046ad8ff451eaef47165b698056",
+        "logic/validation.py": "4578c600116d8f550f1ef8ad786e719a1999f84fd921e5d3d44dd39754506591",
+        "logic/white_cells.py": "20e854ce8ee97e4de3dd93fac4e176cc3fcc54f7c7ccf9e90c203ae8da74b5e0",
+        "pages/10_Reporting.py": "02d8ecd45bb586732c117a6bed6e4029319fc603e6218a19564f7d844817d9fd",
+        "pages/1_Laboratory_Screening_Test.py": "9b2dbc8d1b489b84d16484844a88461cd508c4cd9f506b425ad0b423ce6ef966",
+        "pages/2_PCR_Allele_Matching.py": "4b3d36e315b43c422e9b6b254a597fbf9b8b063146b2db54880be690f2105292",
+        "pages/3_CBC_Anemia.py": "173844be49619dde6c6e66789ba29311d2c8d813eb0a66f2f15cb5ddd570a1f4",
+        "pages/4_White_Cells.py": "5818d5c5586c1a342a581ee015ffe3f61951aed55ea6b31d21a0e5c61868665f",
+        "pages/5_Marrow_Malignancies.py": "2a2ca0585d3dadb621f2b807010b5aa4ea22db00900af964d490e42f693eafa1",
+        "pages/6_Platelets_Bleeding.py": "5d6ffb1be34d1b727298f67de133347e66dc0d774aed44f463543441ae23a68b",
+        "pages/7_Thrombosis.py": "0a745baaa45652353791855f29a0c78ebfdd88173c3f79924ea4626f6a4aa3db",
+        "pages/8_Transfusion.py": "8c40554890aba6263ad2439aa16dcad386be1ba92b3c83e261c5e966e113d3fd",
+        "pages/9_Morphology_Quality.py": "e04fab93d54beecdfb70282cb907ef14201775ea4995eda96e983e6649374259",
+        "thalab/__init__.py": "5170a8d996cb92e44d8e1c21fa0acf3f6b8bc2678ec4014bd03b58b483e8cd71",
+        "thalab/core.py": "9ab08ee63b1016c5c84a5bf7d3a2eba13bcc09a6af9bf01651cae59c88728068",
+        "thalab/genetics.py": "bbfd9cb640de3e158271cb80d695de5cbd8b137fd755f568ca05796f61cf795d",
+        "thalab/ml.py": "55dfdcc10feb87b666c2de4d3ff0ee0bc409d4e8a70f9c2c53f381c7648b7261",
+        "thalab/reporting.py": "7eacf623c1ea0edf7ea96b4ccab8fa84a9f5bdc619d4fcedd1b0be125d914367",
+        "thalab/styles.py": "18d8ce38d1568bcc4fac7170460f4a38ae72475b6a2f81f63d12faac1cf697aa",
+        "thalab/viz.py": "5361621393def1739cadb127a3e1503d0a430d568aa668300e4e347ce2ff0a34",
+        "ui/__init__.py": "38adc22e6a2dbaeddc5726289854b5d2e3e97eca099bed489885653ec2dc66d3",
+        "ui/cbc.py": "52b1991f4910112b8c0e9fa695dde683137e5a2889d5dbabb596a516aa3befb3",
+        "ui/data_io.py": "77bba1232d48a472259ebd4b47893bfcdb8cbcce5c8841c3f02c08e4a8ea5b9d",
+        "ui/domain_io.py": "d32e0500dfcbe3a3b24f190b102b44d9d9103f9fa6791f9a3e22bca666df08f8",
+        "ui/drafts.py": "598cb26a171836218601db858474e11e83c0c5fbfafea66ede0f3feb9f1a3ed8",
+        "ui/hematology_workbench.py": "4d6e0a15e98c1e07498fde1ac8800897bf8f8ef5f89fdc8fd8ec2479de9b1733",
+        "ui/home_visuals.py": "f7ab48efd46d748db80ac02622b09dda16ff1a6e3a925d334a4f21f65396b86e",
+        "ui/identity.py": "5a98dd5a3d16c87d1878973a3fef5097dd672e2371e7491e64e948ca54c14b5f",
+        "ui/learning.py": "d9fa0b493dd72cf7c5557c88891266315ae15e4fb45ba42fd4eae2b6cde3fb69",
+        "ui/navigation.py": "25fd2af998828d098f47131752c09423acc6477ac4d845d5536aadd5a6caa4da",
+        "ui/palette.py": "b150866c80e6b1d1fb866f732842c26ba7c5e2daf4bf468da2d76241eff5695d",
+        "ui/pcr_visuals.py": "f265a500cd080ccefc3a11d71726797c0602deee369b37daa7c6250910a4cde8",
+        "ui/platform_home.py": "3355fa942c141603669674f4dc29bf487ff97e30ac0ac9c40d74a160897ab522",
+        "ui/reporting.py": "fd815ab9b3afb04b3192a498f5abc0d3e430588c1d72b495731ee5d0eda1b18e",
+        "ui/screening.py": "75a301f48c01862f2af6f29d3a0d55d5093b5f83979ef999ae34842700c55eb3",
+        "ui/shell_styles.py": "24d9aec8cdc44bd7988d73475c4e15005e2e94ec235a75d19b1f08ecb039491c",
+        "ui/streamlit_compat.py": "6d59ed6ac52c501d0dd1970191199ab9de155d8dff577368d810b74245b9f4f4",
+        "ui/wbc_learning.py": "370217cd45e6fc8fec339ee54583961e7f00aa721de852588b507965d72789b9",
+        "utils/__init__.py": "51ffb7b45e1e6261e821145d3999cc4b678251566aeb557fa830fa0f128347d4",
+        "utils/build_provenance.py": "83c776aec97efff315a9373a781503d425381ca4141da100b2be3ad87c8daf53",
+        "utils/csv_io.py": "350cd69021b4c70ac5206daf2fd25567ce9c11d4a7c2bc3d043096d26c78bc4d",
+        "utils/domain_reporting.py": "d67661ca3580c62e2856965e2f24fc47edbf9886f9472876180024e2bd29636b",
+        "utils/drafts.py": "7c4c9c2c89fe0825b2f7d3ce31e21f0774ea6baeff86f428a2989d320258e3a4",
+        "utils/learning.py": "f5145748ff90751e57e97309fc0d131d6e53e312e282e40582ce889fe7351d14",
+        "utils/module_registry.py": "91ee7b2978869ec2359199bd4f991d2dab26327a80710a8248903a9174ebe243",
+        "utils/report_layout.py": "0872072f5f212a6d3d59b11ebbffca7fd891d07af0a8d8cd8ca59ce53cbea08a",
+        "utils/reporting.py": "5f56cb8a3add406a0ee5337272b597d8b112e909d6cc12a4bdce63d823dbdaf2"
+      },
+      "lock_sha256": {
+        "requirements-dev-lock-win-py312.txt": "92d9b0760a19bd786537798980c3c128daef82285989959913428a8289d40b44",
+        "requirements-lock-win-py312.txt": "d72ad180707a95398a459beb3a0285b4436a5cc4a107af9885a0952d3c187ef9"
+      },
+      "environment_sha256": "19f110a373f7250fa5e6f1ce6877b9bf5d98299649abce4ae33307e6936f54bf",
+      "environment": {
+        "python": "3.12.15",
+        "platform": "Windows",
+        "packages": {
+          "altair": "6.3.0",
+          "anyio": "4.15.1",
+          "attrs": "26.1.0",
+          "certifi": "2026.7.22",
+          "charset-normalizer": "3.5.2",
+          "click": "8.5.0",
+          "h11": "0.16.0",
+          "httptools": "0.8.0",
+          "idna": "3.20",
+          "itsdangerous": "2.2.0",
+          "jinja2": "3.1.6",
+          "jsonschema": "4.26.0",
+          "jsonschema-specifications": "2025.9.1",
+          "markupsafe": "3.0.4",
+          "narwhals": "2.26.0",
+          "numpy": "2.5.3",
+          "packaging": "26.3",
+          "pandas": "2.3.3",
+          "pillow": "12.3.0",
+          "plotly": "6.9.0",
+          "protobuf": "7.36.2",
+          "pyarrow": "25.0.1",
+          "pydeck": "0.9.3",
+          "python-dateutil": "2.9.0.post0",
+          "python-multipart": "0.0.32",
+          "pytz": "2026.5",
+          "referencing": "0.37.0",
+          "requests": "2.34.2",
+          "rpds-py": "2026.9.1",
+          "six": "1.17.0",
+          "starlette": "1.7.0",
+          "streamlit": "1.65.0",
+          "toml": "0.10.2",
+          "typing-extensions": "4.16.0",
+          "tzdata": "2026.5",
+          "urllib3": "2.8.0",
+          "uvicorn": "0.54.0",
+          "watchdog": "6.0.0",
+          "websockets": "17.2"
+        }
+      },
+      "build_id": "406d8950a90af5e544ff364c31545bda94eaf7d7d35fa20ab4bf2b256eab8c51",
+      "capture_scope": "workspace_source_at_evaluation",
+      "clinical_approval": false
+    }
+  },
+  "validation_context": {
+    "specimen_flags": [],
+    "tolerances": {},
+    "previous_comparable": false
+  },
+  "snapshot_sha256": "927e91e2ad6478cc4ab64c415303f3293f1d7a8ec75b11d4b89f3c8973437c94"
+}

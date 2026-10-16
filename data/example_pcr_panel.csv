@@ -1,0 +1,9 @@
+sample_id,target_code,observed_bp,result,lane
+PARENT-A,SEA_DEL,728,Positive,A1
+PARENT-A,A37_DEL,,Negative,A2
+PARENT-A,CS,,Negative,A3
+PARENT-A,HBE,399,Positive,B1
+PARENT-B,SEA_DEL,,Negative,A4
+PARENT-B,A37_DEL,2026,Positive,A5
+PARENT-B,CD41_42,302,Positive,B2
+PARENT-B,HBE,,Negative,B3

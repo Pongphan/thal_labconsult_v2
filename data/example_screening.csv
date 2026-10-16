@@ -1,0 +1,7 @@
+﻿sample_id,age,sex,hb_g_dl,rbc_10e12_l,hct_percent,mcv_fl,mch_pg,mchc_g_dl,rdw_percent,retic_percent,ferritin_ng_ml,hba_percent,hba2_percent,hba2e_percent,hbf_percent,hbe_percent,bart_percent,hbh_percent,hbcs_percent,hb_method,oft,dcip,hbh_inclusion,transfusion_recent,pregnant,smear_target_cells,family_history
+CASE-BTT-001,24,Female,11.2,5.8,35,67,20.5,31.2,14.2,1.2,85,94.0,5.1,,1.2,0.0,,,,HPLC,Positive,Negative,Negative,False,False,True,True
+CASE-HBE-002,29,Male,12.4,5.2,38,74,23.0,31.0,14.0,1.0,90,72.0,3.8,,0.8,23.5,,,,HPLC,Positive,Positive,Negative,False,False,True,False
+CASE-ALPHA-003,19,Female,11.8,5.7,36,69,21.0,32.0,13.7,1.3,110,96.7,2.5,,0.4,0.0,,,,HPLC,Positive,Negative,Negative,False,False,False,True
+CASE-HBH-004,33,Female,8.8,5.9,30,58,18.0,30.0,18.5,3.2,135,88.0,1.8,,0.9,0.0,,,,HPLC,Positive,Negative,Positive,False,False,True,True
+CASE-IDA-005,38,Female,9.7,4.2,31,72,22.0,30.6,18.2,0.9,8,97.0,2.6,,0.3,0.0,,,,HPLC,Negative,Negative,Negative,False,False,False,False
+CASE-BORDER-006,30,Male,13.5,5.4,41,79,26.0,32.0,14.8,1.0,34,95.8,3.4,,0.9,0.0,,,,HPLC,Positive,Negative,Negative,False,False,False,False

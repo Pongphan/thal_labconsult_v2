@@ -1,0 +1,571 @@
+{
+  "metadata": {
+    "module_id": "morphology_quality",
+    "title": "การทบทวนสเมียร์และคุณภาพสิ่งส่งตรวจ",
+    "version": "2026.10.08-draft.1",
+    "status": "draft_requires_local_validation",
+    "scope": "จัดโครงสร้างสิ่งที่ผู้ตรวจรายงานจากสเมียร์ ตรวจประเด็นคุณภาพ และคำนวณร้อยละจากการนับ differential จริง ไม่ตรวจจับเซลล์จากภาพและไม่วินิจฉัยโรค",
+    "disclaimer": "ผลนี้เป็นการช่วยทบทวนข้อมูลที่ผู้ใช้รายงาน ต้องยืนยันโดยบุคลากรที่ผ่านการฝึกและ SOP ของห้องปฏิบัติการ ไม่ใช่ผลอ่านสเมียร์อัตโนมัติหรือการอนุมัติรายงาน",
+    "sources": [
+      {
+        "title": "ICSH — 2021 update of schistocyte recommendations",
+        "url": "https://www.icsh.org/2021-update-of-the-2012-icsh-recommendations-for-schistocytes",
+        "use": "ขอบเขตสัดส่วน schistocytes ในผู้ใหญ่/ทารกครบกำหนดและทารกก่อนกำหนด; ไม่ใช้แทนการวินิจฉัย TMA"
+      },
+      {
+        "title": "ICSH — Morphology nomenclature and grading (2015)",
+        "url": "https://www.icsh.org/recommendations-for-standardization-of-nomenclature-and-grading-of-peripheral-blood-cell",
+        "use": "การบันทึกชนิดและเกรดสิ่งผิดปกติจากการตรวจด้วยกล้องโดยบุคลากร"
+      },
+      {
+        "title": "ISLH — Consensus rules for CBC and differential review",
+        "url": "https://islh.org/web/consensus_rules.php",
+        "use": "การส่งทบทวนสเมียร์เมื่อพบ blasts/platelet clumps และการตรวจสิ่งส่งตรวจตาม SOP"
+      },
+      {
+        "title": "ICSH — Evaluation of blood cell analysers (2014)",
+        "url": "https://doi.org/10.1111/ijlh.12201",
+        "use": "การยืนยันความคงตัวของตัวอย่างตามวิธีและสภาพเก็บ; ไม่ใช้เวลาคงตัวเดียวกับทุกห้องปฏิบัติการ"
+      },
+      {
+        "title": "BD — Vacutainer evacuated blood collection system instructions",
+        "url": "https://www.bd.com/documents/alerts/Vacutainer%20Recall%20-%20Updated%20Package%20Insert.pdf",
+        "use": "การตรวจปริมาณเติมและจัดการหลอดตามคำแนะนำผู้ผลิตของหลอดที่ใช้จริง ไม่ตั้งค่าปริมาตร EDTA สากล"
+      }
+    ]
+  },
+  "fields": [
+    {
+      "key": "population",
+      "label": "กลุ่มอายุสำหรับทบทวน schistocytes",
+      "type": "select",
+      "section": "ข้อมูลสเมียร์",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "adult",
+          "label": "ผู้ใหญ่"
+        },
+        {
+          "value": "term_neonate",
+          "label": "ทารกแรกเกิดครบกำหนด"
+        },
+        {
+          "value": "preterm_neonate",
+          "label": "ทารกแรกเกิดก่อนกำหนด"
+        },
+        {
+          "value": "other_child",
+          "label": "เด็กกลุ่มอื่น"
+        }
+      ]
+    },
+    {
+      "key": "smear_reviewed",
+      "label": "ผู้ตรวจทบทวนสเมียร์ด้วยกล้องแล้ว",
+      "type": "select",
+      "section": "ข้อมูลสเมียร์",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / พบ"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่พบ"
+        }
+      ]
+    },
+    {
+      "key": "smear_quality",
+      "label": "คุณภาพการเตรียมและย้อมสเมียร์ตาม SOP",
+      "type": "select",
+      "section": "คุณภาพสิ่งส่งตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "acceptable",
+          "label": "ผ่านเกณฑ์"
+        },
+        {
+          "value": "unacceptable",
+          "label": "ไม่ผ่านเกณฑ์"
+        }
+      ]
+    },
+    {
+      "key": "specimen_clot",
+      "label": "พบลิ่มในสิ่งส่งตรวจ",
+      "type": "select",
+      "section": "คุณภาพสิ่งส่งตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / พบ"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่พบ"
+        }
+      ]
+    },
+    {
+      "key": "specimen_hemolysis",
+      "label": "มีหลักฐานตัวอย่าง hemolysis/การรบกวนที่ต้องทบทวน",
+      "type": "select",
+      "section": "คุณภาพสิ่งส่งตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / พบ"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่พบ"
+        }
+      ]
+    },
+    {
+      "key": "edta_fill_status",
+      "label": "ปริมาณเติมหลอด EDTA ตามผู้ผลิตและ SOP",
+      "type": "select",
+      "section": "คุณภาพสิ่งส่งตรวจ",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "acceptable",
+          "label": "อยู่ในเกณฑ์ที่ยืนยันแล้ว"
+        },
+        {
+          "value": "outside",
+          "label": "อยู่นอกเกณฑ์"
+        }
+      ]
+    },
+    {
+      "key": "sample_age_hours",
+      "label": "เวลาจากเก็บตัวอย่างถึงตรวจ",
+      "type": "number",
+      "section": "เวลาและขอบเขตตาม SOP",
+      "min": 0,
+      "max": 240,
+      "unit": "ชั่วโมง"
+    },
+    {
+      "key": "local_max_age_hours",
+      "label": "ระยะเวลาคงตัวสูงสุดสำหรับวิธี/สภาพเก็บตาม SOP",
+      "type": "number",
+      "section": "เวลาและขอบเขตตาม SOP",
+      "min": 0.01,
+      "max": 240,
+      "unit": "ชั่วโมง"
+    },
+    {
+      "key": "timing_limit_validated",
+      "label": "ขีดจำกัดเวลานี้ผ่านการยืนยันสำหรับวิธีและสภาพเก็บจริง",
+      "type": "select",
+      "section": "เวลาและขอบเขตตาม SOP",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / พบ"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่พบ"
+        }
+      ]
+    },
+    {
+      "key": "blast_observation",
+      "label": "สิ่งที่ผู้ตรวจรายงานเกี่ยวกับ blasts",
+      "type": "select",
+      "section": "สิ่งที่พบด้วยกล้อง",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "not_seen",
+          "label": "ไม่พบในการทบทวนครั้งนี้"
+        },
+        {
+          "value": "suspected",
+          "label": "สงสัย blasts ต้องยืนยัน"
+        },
+        {
+          "value": "confirmed",
+          "label": "ผู้ตรวจรายงานพบ blasts"
+        }
+      ]
+    },
+    {
+      "key": "schistocyte_percent",
+      "label": "Schistocytes จากการนับด้วยกล้องที่รายงาน",
+      "type": "number",
+      "section": "สิ่งที่พบด้วยกล้อง",
+      "min": 0,
+      "max": 100,
+      "unit": "%"
+    },
+    {
+      "key": "platelet_clumps",
+      "label": "ผู้ตรวจรายงาน platelet clumps",
+      "type": "select",
+      "section": "สิ่งที่พบด้วยกล้อง",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "yes",
+          "label": "ใช่ / พบ"
+        },
+        {
+          "value": "no",
+          "label": "ไม่ใช่ / ไม่พบ"
+        }
+      ]
+    },
+    {
+      "key": "rbc_morphology",
+      "label": "รูปแบบ RBC ที่ผู้ตรวจรายงาน",
+      "type": "multiselect",
+      "section": "สิ่งที่พบด้วยกล้อง",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "none",
+          "label": "ไม่ได้รายงานความผิดปกติในรายการนี้"
+        },
+        {
+          "value": "target_cells",
+          "label": "Target cells"
+        },
+        {
+          "value": "spherocytes",
+          "label": "Spherocytes"
+        },
+        {
+          "value": "elliptocytes",
+          "label": "Elliptocytes"
+        },
+        {
+          "value": "teardrops",
+          "label": "Teardrop cells"
+        },
+        {
+          "value": "polychromasia",
+          "label": "Polychromasia"
+        },
+        {
+          "value": "agglutination",
+          "label": "RBC agglutination"
+        },
+        {
+          "value": "anisopoikilocytosis",
+          "label": "Anisopoikilocytosis"
+        },
+        {
+          "value": "microcytosis",
+          "label": "Microcytosis"
+        },
+        {
+          "value": "macrocytosis",
+          "label": "Macrocytosis"
+        }
+      ]
+    },
+    {
+      "key": "rbc_grade",
+      "label": "เกรด RBC morphology ตามระบบของหน่วยงาน",
+      "type": "select",
+      "section": "สิ่งที่พบด้วยกล้อง",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "trace",
+          "label": "เล็กน้อย/trace"
+        },
+        {
+          "value": "1plus",
+          "label": "1+"
+        },
+        {
+          "value": "2plus",
+          "label": "2+"
+        },
+        {
+          "value": "3plus",
+          "label": "3+"
+        }
+      ]
+    },
+    {
+      "key": "wbc_morphology",
+      "label": "รูปแบบ WBC ที่ผู้ตรวจรายงาน",
+      "type": "multiselect",
+      "section": "สิ่งที่พบด้วยกล้อง",
+      "options": [
+        {
+          "value": "unknown",
+          "label": "ไม่ทราบ / ยังไม่ได้ตรวจ"
+        },
+        {
+          "value": "none",
+          "label": "ไม่ได้รายงานความผิดปกติในรายการนี้"
+        },
+        {
+          "value": "toxic_granulation",
+          "label": "Toxic granulation"
+        },
+        {
+          "value": "reactive_lymphocytes",
+          "label": "Reactive lymphocytes"
+        },
+        {
+          "value": "left_shift",
+          "label": "Left shift"
+        }
+      ]
+    },
+    {
+      "key": "diff_neutrophils",
+      "label": "Neutrophils ที่นับจริง",
+      "type": "number",
+      "section": "การนับ differential ด้วยมือ",
+      "min": 0,
+      "max": 2000,
+      "unit": "เซลล์"
+    },
+    {
+      "key": "diff_lymphocytes",
+      "label": "Lymphocytes ที่นับจริง",
+      "type": "number",
+      "section": "การนับ differential ด้วยมือ",
+      "min": 0,
+      "max": 2000,
+      "unit": "เซลล์"
+    },
+    {
+      "key": "diff_monocytes",
+      "label": "Monocytes ที่นับจริง",
+      "type": "number",
+      "section": "การนับ differential ด้วยมือ",
+      "min": 0,
+      "max": 2000,
+      "unit": "เซลล์"
+    },
+    {
+      "key": "diff_eosinophils",
+      "label": "Eosinophils ที่นับจริง",
+      "type": "number",
+      "section": "การนับ differential ด้วยมือ",
+      "min": 0,
+      "max": 2000,
+      "unit": "เซลล์"
+    },
+    {
+      "key": "diff_basophils",
+      "label": "Basophils ที่นับจริง",
+      "type": "number",
+      "section": "การนับ differential ด้วยมือ",
+      "min": 0,
+      "max": 2000,
+      "unit": "เซลล์"
+    },
+    {
+      "key": "diff_immature_granulocytes",
+      "label": "Immature granulocytes ที่นับจริง",
+      "type": "number",
+      "section": "การนับ differential ด้วยมือ",
+      "min": 0,
+      "max": 2000,
+      "unit": "เซลล์"
+    },
+    {
+      "key": "diff_blasts",
+      "label": "Blasts ที่นับจริง",
+      "type": "number",
+      "section": "การนับ differential ด้วยมือ",
+      "min": 0,
+      "max": 2000,
+      "unit": "เซลล์"
+    },
+    {
+      "key": "diff_other",
+      "label": "เซลล์เม็ดเลือดขาวอื่น ที่นับจริง",
+      "type": "number",
+      "section": "การนับ differential ด้วยมือ",
+      "min": 0,
+      "max": 2000,
+      "unit": "เซลล์"
+    },
+    {
+      "key": "diff_total_reported",
+      "label": "จำนวน WBC ทั้งหมดที่ผู้ตรวจระบุ (ไม่บังคับ)",
+      "type": "number",
+      "section": "การนับ differential ด้วยมือ",
+      "min": 1,
+      "max": 16000,
+      "unit": "เซลล์"
+    },
+    {
+      "key": "nrbc_count",
+      "label": "NRBC ที่พบระหว่างการนับชุดนี้ (ไม่รวมใน WBC denominator)",
+      "type": "number",
+      "section": "การนับ differential ด้วยมือ",
+      "min": 0,
+      "max": 2000,
+      "unit": "เซลล์"
+    }
+  ],
+  "thresholds": {
+    "schistocyte_percent_upper": {
+      "adult": 1,
+      "term_neonate": 1,
+      "preterm_neonate": 5
+    },
+    "differential_fields": [
+      "diff_neutrophils",
+      "diff_lymphocytes",
+      "diff_monocytes",
+      "diff_eosinophils",
+      "diff_basophils",
+      "diff_immature_granulocytes",
+      "diff_blasts",
+      "diff_other"
+    ]
+  },
+  "messages": {
+    "quality_unknown": "ข้อมูลคุณภาพที่จำเป็นยังไม่ครบ จึงไม่รับรองความใช้ได้ของผลจากสิ่งส่งตรวจ",
+    "quality_hold": "มีประเด็นคุณภาพ ต้องทบทวนหรือจัดการสิ่งส่งตรวจก่อนนำผลที่ได้รับผลกระทบไปใช้",
+    "quality_review": "ข้อมูลคุณภาพที่กรอกครบสำหรับการทบทวนตาม SOP ไม่ใช่การอนุมัติรายงาน",
+    "clot": "รายงานพบลิ่ม: ผลจำนวนเซลล์อาจใช้ไม่ได้ ต้องดำเนินการตามเกณฑ์รับ/ปฏิเสธตัวอย่างและเก็บใหม่เมื่อ SOP กำหนด",
+    "hemolysis": "รายงาน hemolysis/การรบกวน: ให้ประเมินผลกระทบต่อรายการตรวจและความจำเป็นต้องเก็บใหม่ตามวิธีตรวจ",
+    "fill": "ปริมาณเติม EDTA อยู่นอกเกณฑ์ที่ยืนยัน: ทบทวนอัตราส่วนเลือดต่อสารกันเลือดแข็งตามหลอดและ SOP ก่อนใช้ผล",
+    "smear_bad": "สเมียร์ไม่ผ่านคุณภาพการเตรียม/ย้อม ต้องจัดเตรียมหรือทบทวนใหม่ก่อนสรุปลักษณะเซลล์",
+    "timing_missing": "ยังไม่มีเวลาและขีดจำกัดคงตัวที่ยืนยันสำหรับวิธี/สภาพเก็บนี้ จึงยังประเมินความใช้ได้ด้านเวลาไม่ได้",
+    "timing_exceeded": "เวลาตัวอย่าง {age:g} ชั่วโมงเกินขีดจำกัดที่ระบุ {limit:g} ชั่วโมง ต้องทบทวนผลกระทบและเก็บตัวอย่างใหม่ตาม SOP",
+    "timing_review": "เวลาตัวอย่างที่กรอก {age:g} ชั่วโมงไม่เกินขีดจำกัดที่หน่วยงานระบุ {limit:g} ชั่วโมง",
+    "observation_unreviewed": "มีข้อมูล morphology/การนับเซลล์ แต่ระบุว่ายังไม่ได้ทบทวนสเมียร์ กรุณายืนยันแหล่งผลก่อนใช้",
+    "blast_alert": "มีรายงานพบหรือสงสัย blasts ให้ผู้ชำนาญทบทวนสเมียร์และสื่อสารผลเร่งด่วนตาม SOP ไม่ใช้ข้อมูลนี้วินิจฉัยมะเร็งเม็ดเลือด",
+    "blast_action": "ยืนยันชนิดเซลล์และผล differential โดยผู้มีอำนาจทบทวน แล้วพิจารณาการตรวจเฉพาะทางตามบริบท",
+    "blast_conflict": "ระบุไม่พบ blasts แต่บันทึกจำนวน blasts มากกว่าศูนย์ กรุณาตรวจข้อมูล",
+    "schisto_value": "ผู้ตรวจรายงาน schistocytes {value:g}%",
+    "schisto_high": "Schistocytes {value:g}% เกินขอบเขตอ้างอิง {limit:g}% ของกลุ่มที่ระบุ ควรให้ผู้เชี่ยวชาญทบทวนโดยเร็วร่วมกับข้อมูลเกล็ดเลือดและหลักฐาน hemolysis",
+    "schisto_preterm": "Schistocytes {value:g}% เกินขอบเขตอ้างอิง {limit:g}% ที่ระบุสำหรับทารกก่อนกำหนด ต้องใช้บริบททารกและเกณฑ์ของหน่วยงาน",
+    "schisto_scope": "ยังไม่ใช้เกณฑ์ schistocytes เนื่องจากไม่ระบุกลุ่มอายุหรือเป็นเด็กกลุ่มที่ไม่มีเกณฑ์ในโมดูลนี้",
+    "schisto_limit": "สัดส่วน schistocytes เพียงอย่างเดียวไม่ยืนยันหรือตัด TMA ออก ต้องยืนยันการนับ คุณภาพสเมียร์ และบริบททางคลินิก",
+    "clumps": "รายงาน platelet clumps: จำนวนเกล็ดเลือดจากเครื่องอาจถูกรบกวน ต้องทบทวนก่อนสรุปว่าเกล็ดเลือดต่ำ",
+    "clumps_action": "ตรวจสเมียร์และดำเนินการตรวจซ้ำ/ใช้วิธีหรือสารกันเลือดแข็งทางเลือกที่ผ่านการยืนยันตาม SOP ไม่ใช้ตัวคูณแก้ไขสากล",
+    "rbc_observed": "RBC morphology ที่รายงาน: {items}; เกรดที่ระบุ: {grade}",
+    "rbc_action": "ทบทวนรูปแบบ RBC ร่วมกับ CBC, reticulocyte และบริบทผู้ป่วย; รูปแบบเดียวไม่ระบุสาเหตุหรือจีโนไทป์",
+    "wbc_observed": "WBC morphology ที่รายงาน: {items}",
+    "wbc_action": "ยืนยันชนิดเซลล์และ differential บนสเมียร์ร่วมกับผล CBC และบริบท; ไม่ใช้ลักษณะเดียวระบุโรค",
+    "selection_conflict": "รายการ {label} มีตัวเลือกไม่ทราบ/ไม่พบร่วมกับสิ่งผิดปกติ กรุณาตรวจความสอดคล้อง",
+    "counts_integer": "{label} ต้องเป็นจำนวนเซลล์เต็ม ไม่ใช่ร้อยละหรือเลขทศนิยม",
+    "counts_incomplete": "การนับ differential ยังไม่ครบทุกประเภท ช่องว่างไม่ถือเป็นศูนย์ จึงยังไม่คำนวณร้อยละ",
+    "counts_zero": "ผลรวมจำนวน WBC ที่นับต้องมากกว่าศูนย์ก่อนคำนวณร้อยละ",
+    "counts_mismatch": "ผลรวมจำนวนเซลล์ {total:g} ไม่ตรงกับจำนวนทั้งหมดที่ผู้ตรวจระบุ {reported:g} กรุณาทบทวนการนับ",
+    "counts_ready": "คำนวณ differential จาก WBC ที่นับจริงทั้งหมด {total:g} เซลล์ โดยไม่รวม NRBC ใน denominator",
+    "counts_arithmetic": "ร้อยละเป็นการคำนวณจากจำนวนที่กรอก ไม่ยืนยันชนิดเซลล์ ความเป็นตัวแทนของสเมียร์ หรือความใช้ได้ของผลเมื่อคุณภาพยังไม่ผ่าน",
+    "nrbc_note": "รายงาน NRBC แยกจาก WBC differential; ไม่มีการแก้ค่า WBC จากเครื่องโดยอัตโนมัติ",
+    "review_missing": "ยังไม่ยืนยันการทบทวนสเมียร์โดยบุคลากร จึงยังไม่มีการรับรองผล morphology",
+    "no_abnormal_reported": "ไม่มีรายการผิดปกติที่เลือกไว้ในขอบเขตนี้ ข้อความนี้ไม่รับรองว่าสเมียร์หรือ CBC ปกติ",
+    "quality_action": "ให้ผู้รับผิดชอบตัดสินการรับตัวอย่าง การตรวจซ้ำ การเก็บใหม่ และข้อความกำกับรายงานตาม SOP"
+  },
+  "limitations": [
+    "ไม่มีการอัปโหลดภาพ การวิเคราะห์ภาพ หรือการตรวจจับ/จำแนกเซลล์ด้วย AI",
+    "ข้อสังเกตทั้งหมดมาจากข้อมูลที่ผู้ตรวจป้อน ไม่แทนการประเมินสเมียร์โดยผู้ผ่านการฝึก",
+    "ไม่ตั้งเวลาเก็บรักษาหรือเกณฑ์เติม EDTA แบบเดียวกับทุกเครื่อง/หลอด ใช้ขีดจำกัดที่หน่วยงานยืนยันเท่านั้น",
+    "ขีดจำกัดจำนวนเซลล์ในแบบฟอร์มเป็นขอบเขตรับข้อมูล ไม่ใช่เกณฑ์ทางคลินิก",
+    "การแจ้งเตือนสิ่งที่อาจสำคัญยังคงแสดงแม้คุณภาพหรือข้อมูลอื่นมีปัญหา ต้องยืนยันโดยผู้รับผิดชอบ"
+  ],
+  "counseling": [
+    "อธิบายเหตุผลเมื่อจำเป็นต้องเก็บตัวอย่างใหม่หรือทบทวนผล เพื่อหลีกเลี่ยงการสรุปจากสิ่งส่งตรวจที่มีการรบกวน",
+    "สื่อสารสิ่งที่สงสัยว่ามีความสำคัญกับทีมรักษาตาม SOP โดยไม่แจ้งชื่อโรคที่ยังไม่ได้ยืนยัน"
+  ],
+  "examples": [
+    {
+      "name": "ตัวอย่าง platelet clumps",
+      "data": {
+        "population": "adult",
+        "smear_reviewed": "yes",
+        "smear_quality": "acceptable",
+        "specimen_clot": "no",
+        "specimen_hemolysis": "no",
+        "edta_fill_status": "acceptable",
+        "sample_age_hours": 2,
+        "local_max_age_hours": 6,
+        "timing_limit_validated": "yes",
+        "platelet_clumps": "yes"
+      }
+    },
+    {
+      "name": "ตัวอย่าง differential ที่นับ 100 เซลล์",
+      "data": {
+        "population": "adult",
+        "smear_reviewed": "yes",
+        "smear_quality": "acceptable",
+        "specimen_clot": "no",
+        "specimen_hemolysis": "no",
+        "edta_fill_status": "acceptable",
+        "sample_age_hours": 2,
+        "local_max_age_hours": 6,
+        "timing_limit_validated": "yes",
+        "blast_observation": "not_seen",
+        "platelet_clumps": "no",
+        "rbc_morphology": [
+          "none"
+        ],
+        "wbc_morphology": [
+          "none"
+        ],
+        "diff_neutrophils": 55,
+        "diff_lymphocytes": 35,
+        "diff_monocytes": 5,
+        "diff_eosinophils": 3,
+        "diff_basophils": 1,
+        "diff_immature_granulocytes": 0,
+        "diff_blasts": 0,
+        "diff_other": 1,
+        "diff_total_reported": 100,
+        "nrbc_count": 2
+      }
+    }
+  ]
+}

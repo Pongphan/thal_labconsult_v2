@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "artifact_type": "synthetic_report_template",
+  "document_status": "DRAFT",
+  "data_origin": "synthetic",
+  "release_eligible": false,
+  "paper": "A4",
+  "reference_intervals": null,
+  "template": {
+    "panel": "cbc",
+    "language": "bilingual",
+    "institution": "ห้องปฏิบัติการสมมติ / Synthetic laboratory",
+    "version": "0.1",
+    "margin_mm": 15,
+    "show_previous": true,
+    "show_morphology": false,
+    "show_comments": true,
+    "show_trend": false
+  }
+}

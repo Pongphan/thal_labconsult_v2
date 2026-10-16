@@ -1,0 +1,7 @@
+# Direct development inputs; install the complete requirements-dev-lock-win-py312.txt on Windows.
+pytest==9.1.1
+pytest-cov==7.1.0
+ruff==0.17.0
+PyYAML==6.0.3
+playwright==1.64.0
+pypdfium2==5.14.0
